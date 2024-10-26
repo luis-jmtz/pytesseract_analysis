@@ -1,0 +1,5 @@
+
+
+Character Accuracy: This is calculated as 1 - (levenshtein_distance / len(base_truth)), which gives the proportion of correct characters in the OCR text.
+CER: This is levenshtein_distance / len(base_truth), representing the character error rate.
+WER: Using word_error_rate(), this metric is calculated by dividing the word-level Levenshtein distance by the number of words in base_truth.

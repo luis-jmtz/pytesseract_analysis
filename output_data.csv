@@ -1,8 +1,8 @@
-image_name,base_truth,ocr_output
-eng_AF_001.jpg,Picture and Passport photo 2015 sep license Mck Sales Letter Old Proof ownership,
+image_name,base_truth,ocr_output,character_accuracy,levenshtein_distance,CER,WER
+eng_AF_001.jpg,Picture and Passport photo 2015 sep license Mck Sales Letter Old Proof ownership,,0.0,80,1.0,6.153846153846154
 eng_AF_002.jpg,Coneordin Sweet is the Memory of the Righteous English This is about the relationship that between the item that function as the subjectand the items occuring as a users Gremmath cal concord This is about the relationship that coexists between the subjectand the verb Where we talk about we telk about grammar Rules of cornorel eblepimile pronouns would generally require a singular verb,"Conger in Engtes -_ Righteous ~
 water Brice Heed fUALieen
 
 ACTLEVYY
 
-"
+",0.10852713178294571,345,0.8914728682170543,5.444444444444445
