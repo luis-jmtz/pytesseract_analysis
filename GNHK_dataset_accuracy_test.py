@@ -6,7 +6,7 @@ import pytesseract
 import Levenshtein
 
 # Specify the folder path and output CSV file path
-folder_path = 'Temp_image_folder'  # Replace with the path to your folder
+folder_path = r"C:\Users\Superuser\Documents\Snr Seminar Images\handwritten_imgs\train" # Replace with the path to your folder
 output_csv_path = 'output_data.csv'  # Path for the output CSV file
 
 # Function to calculate WER
