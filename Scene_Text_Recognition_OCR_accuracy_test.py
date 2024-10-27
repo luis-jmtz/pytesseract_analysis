@@ -6,7 +6,7 @@ import pytesseract
 import Levenshtein
 
 # Specify folder path and output CSV file path
-folder_path = 'Temp_image_folder'  # Replace with the path to your folder
+folder_path = r"D:\Total Text - Scene Text Recognition\img_with_ground_truth"  # Replace with the path to your folder
 output_csv_path = 'output_data_txt.csv'  # Output CSV file path
 
 # Function to parse ground truth text from the .txt file
