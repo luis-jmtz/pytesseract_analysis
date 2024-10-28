@@ -4,8 +4,8 @@ import os
 
 # Define file paths
 input_file_path = r"data_set_builder\input.txt"  # Path to the input text file
-fonts_folder_path = r"data_set_builder\fonts"  # Path to the folder containing font files
-output_image_folder = r"data_set_builder\output_images"  # Folder to save the output images
+fonts_folder_path = r"data_set_builder\Google_Handwritten_Fonts"  # Path to the folder containing font files
+output_image_folder = r"data_set_builder\Handwritten Font Images"  # Folder to save the output images
 
 # Create the output directory if it doesn't exist
 os.makedirs(output_image_folder, exist_ok=True)
