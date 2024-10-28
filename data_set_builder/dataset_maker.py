@@ -4,8 +4,8 @@ import os
 
 # Define file paths
 input_file_path = r"data_set_builder\input.txt"  # Path to the input text file
-fonts_folder_path = r"data_set_builder\Google_Handwritten_Fonts"  # Path to the folder containing font files
-output_image_folder = r"data_set_builder\Handwritten Font Images"  # Folder to save the output images
+fonts_folder_path = r"data_set_builder\dyslexia_fonts"  # Path to the folder containing font files
+output_image_folder = r"data_set_builder\dyslexia_fonts_images"  # Folder to save the output images
 
 # Create the output directory if it doesn't exist
 os.makedirs(output_image_folder, exist_ok=True)
@@ -63,9 +63,5 @@ for font_file in os.listdir(fonts_folder_path):
         output_image_path = os.path.join(output_image_folder, f"{os.path.splitext(font_file)[0]}.png")
         image.save(output_image_path)
 
-        # # Optionally display the image using matplotlib (comment this if too many images)
-        # plt.imshow(image)
-        # plt.axis('off')  # Turn off axis numbers and ticks
-        # plt.show()
 
         print(f"Image saved as {output_image_path}")
