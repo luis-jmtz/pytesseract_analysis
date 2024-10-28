@@ -5,9 +5,9 @@ import pytesseract
 import Levenshtein
 
 # Define the required variables
-input_folder = r"data_set_builder\Standard Fonts Images"  
+input_folder = r"data_set_builder\dyslexia_fonts_images"  
 ground_truth_file = r"data_set_builder\input.txt"  
-output_csv = r"standard_font_analysis.csv"  
+output_csv = r"dsylexia_font_analysis.csv"  
 
 # Load the ground truth text from the specified .txt file
 with open(ground_truth_file, 'r', encoding='utf-8') as file:

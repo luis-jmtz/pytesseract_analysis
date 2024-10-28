@@ -1,0 +1,188 @@
+image_name,ocr_output,character_accuracy,levenshtein_distance,CER,WER
+Ldfcomicsans-jj7l.png,"lam already far north of London, and as | walk in the streets of Petersburgh, | feel a cold northern breeze play upon my cheeks, which
+braces my nerves and fills me with delight. Do you understand this feeling? This breeze, which has trayelled from the regions towards
+which | am advancing, gives me a foretaste of those icy climes. Inspirited by ths wind of promise, my daydreams become more fervent
+and vivid. [try in vain to be persuaded that the pole the Seat of frost and desolation; it ever presents itself to my imagination as the
+region of beauty and delight. There, Margaret, the sun is for ever visible, its broad disk just skirting the horizon and diffusing a perpetual
+splendour. Thereifor with your leave, my sister, | will put Some trust in preceding navigatorsithere snow and frost are banished; and,
+sailing over a calm Sea, we may be wafted to a land surpassing in wonders and in beauty every region hitherto discovered on the
+habitable globe. ts productions and features may be without example, as the phenomena of the heavenly bodies undoubtedly are in those
+undiscovered Solitudes. What may not be expected in a country of eternal light? | may there discover the wondrous power which attracts
+the needle and may regulate a thousand celestial observations that require only this voyage to render their Seeming eccentricities
+consistent for ever. | shall satiate my ardent curiosity with the sight of a part of the world never before visited, and may tread a land
+never before imprinted by the foot of man. These are my enticements, and they are sufficient to conquer all fear of danger or death and
+to induce me to commence this laborious voyage with the joy a child feels when he embarks in a little boat, with his holiday mates, on an
+expedition of discovery up his native river. But Supposing all these conjectures to be false, you cannot contest the inestimable benefit
+which | shall confer on all mankind, to the last generation, by discovering a passage near the pole to those countries, to reach which at
+present So many months are requisite; or by ascertaining the Secret of the magnet, which, if at all possible, can only be effected by an
+undertaking such as mine.
+
+",0.9795454545454545,45,0.020454545454545454,0.0703125
+Ldfcomicsansbold-zgma.png,"lam already far north of London, and as | walk in the streets of Petersburgh, | feela coll northem breeze play upon my cheeks, which
+braces my nerves and fills me with delight. Do you urderstand this feeling? This breeze, which has travelled from the regions towards
+which | am advancing, gives me a foretaste of those icy climes. Inspirited by this wind of promise, my daydreams become more fetvertt
+and vivid. | ¢ry in vain to be persuaded that the pole is the sect of frost and desolation; it ever presents itself to my imagination as the
+region of beauty and delight. There, Margaret, the sun is for ever visible, its broad disk just skirting the horizon and diffusing a
+perpetual splendour. Therelfor with your leave, my sister, | will put some trust in preceding navigatorsithere snow and frost are
+banished; and, sailing over a calm sea, we may be wafted to a land surpassing in wonders ard in beauty every region hitherto discovered
+onthe habitable globe. Its productions and features may be without example, as the phenomena of the heavenly bodies undoubtedly are
+in those undiscovered solitudes. What may not be expected ina country of eternal light? | may there discover the wondrous power
+which attracts the needle ard may regulate a thousand celestial observations that require only this voyage to render their seeming
+eccentricities consistent for ever. | shall satiate my ardent curiosity with the sight of a part of the world never before visited, ard may
+tread a land never before imprinted by the foot of man. These are my enticements, and they are sufficient to conquer all fear of danger
+or death and to induce me to commence this lborious voyage with the joy a chill feels when he embarks in a little boat, with his holiday
+mates, on an expedition of discovery up his native river. But supposing all these conjectures to be false, you camot corttest the
+inestimable benefit which | shall confer on all mankind, to the last generation, by discovering a passage near the pole to those countries,
+to reach which at present so many months ate requisite; or by ascertaining the secret of the magnet, which, if at all possible, can only
+be effected by an undertaking such as mine.
+",0.9768181818181818,51,0.023181818181818182,0.08854166666666667
+Ldfcomicsanshairline-5PmL.png,"1am already far north of London, and os | walk in the streets of Petersburgh, | feel a cold northern breeze play upon my cheeks, which braces my
+nerves ond fils me wrth delight Do you understand this feeling? This breeze, which hos travelled from the regions towards which | am advancing,
+gives me o foretaste of those icy climes. Inspirtted by this wind of promise, my daydreams become more fervertt and vivid. I try in vain to be
+persudded that the pole is the Seat of frost and desolation, tt ever presents itself to my imagination as the region of beauty and delight There,
+Margaret, the sun is for ever visible, its broad disk just skirting the horizon and diffusing a perpetual splendour. Therelfor with your leave, my
+sister, | wil put some trust in preceding navigetorsithere snow ond frost are banished, and, sailing over a calm sea, we may be wafted to a land
+surpassing in wonders and in beauty every region hitherto discovered on the hdbttable globe. Its productions and features may be without example,
+as the phenomena of the heavenly bodies undoubtedly are in those undiscovered solitudes. What may not be expected in a courtry of eternal
+light? | may there discover the wondrous power which attracts the needle and may regulate a thousand celestial observations that require only this
+voyage to render their seeming eccertrricties consistent for ever | shall satiate my ardent curiosity with the sight of o part of the world never
+before visited, and may tred a land never before imprinted by the foot of rman. These are my enticements, and they are sufficient to conquer all
+fear of danger or death and to induce me to commence this bborious voyage with the joy a child feels when he embarks in a little boat, with his
+holiday mates, on an expedition of discovery up his native river. But supposing all these conjectures to be fale, you cannot contest the inestimable
+benefit which | shall confer on all mankind, to the last generation, by discovering a passage near the pole to those countries, to reach which at
+present So mony months are requisite; or by ascertaining the Secret of the magnet, which, if at all possible, can only be effected by on undertaking
+such as mine
+",0.9713636363636363,63,0.028636363636363637,0.125
+Ldfcomicsanslight-6dZo.png,"lam already far north of London, and as | walk in the streets of Petersburgh, | feel a cold northern breeze play upon my cheeks, which braces
+my nerves and fills me with delight. Do you understand this feeling? This breeze, which has travelled from the regions towards which | arn
+advancing, gives me a foretaste of those icy climes. Inspirited by this wind of promise, my daydreams become more fervent and vivid. | try in
+vain to be persuaded that the pole is the seat of frost and desolation; it ever presents itself to my imagination as the region of beauty and
+delight. There, Margaret, the Sun is for ever visible, its broad disk just skirting the horizon and diffusing a perpetual splendour. Therelfor with
+your leave, my sister, | will put some trust in preceding navigatorsithere snow and frost are banished; and, saling over a calm sea, we may be
+wafted to a land surpassing in wonders and in beauty every region hitherto discovered on the habitable globe. tts productions and features
+may be without example, as the phenomena of the heavenly bodies undoubtedly are in those undiscovered solitudes. What may not be
+expected ina country of eternal light? | may there discover the wondrous power which attracts the needle and may regulate a thousand
+celestial observations that require only this voyage to render their seeming eccentricities consistent for ever. | shall satiate my ardent curiosity
+with the sight of a part of the world never before visited, and may tread a land never before imprinted by the foot of man. These are my
+enticements, and they are sufficient to conquer all fear of danger or death and to induce me to commence this laborious voyage with the joy a
+child feels when he embarks in a Ittle boat, with his holiday mates, on an expedition of discovery up his native river. But supposing all these
+conjectures to be false, you cannot contest the inestimable benefit which | shall confer on all mankind, to the last generation, by discovering a
+passage near the pole to those countries, to reach which at present so many months are requisite; or by ascertaining the secret of the
+magnet, which, if at all possible, can only be effected by an undertaking such as mine
+",0.9836363636363636,36,0.016363636363636365,0.0546875
+OpenDyslexic-Bold-Italic.png,"I am already far north of London, and as I walk in the streets of Petersburgh, |
+feel a cold northern breeze play upon my cheeks, which braces my nerves and
+fills me with delight. Do you understand this feeling? This breeze, which has
+travelled from the regions towards which I am advancing, gives me a foretaste of
+those icy climes. InSpirited by this wind of promise, my daydreams become more
+fervent and vivid. I try in vain to be persuaded that the pole is the seat of
+frost and desolation; it ever presents itself to my imagination as the region of
+beauty and delight. There, Margaret, the sun is for ever visible, its broad disk
+just skirting the horizon and diffusing a perpetual splendour. There—for with your
+leave, my sister, | will put Some trust in preceding navigators—there snow and
+frost are banished; and, sailing over a calm sea, we may be wafted to a land
+surpassing in wonders and in beauty every region hitherto discovered on the
+habitable globe. Its productions and features may be without example, as the
+phenomena of the heavenly bodies undoubtedly are in those undiscovered
+Solitudes. What may not be expected in a country of eternal light? I may there
+discover the wondrous power which attracts the needle and may regulate a
+thousand celestial observations that require only this voyage to render their
+seeming eccentricities consistent for ever. | shall satiate my ardent curiosity
+with the sight of a part of the world never before visited, and may tread a land
+never before imprinted by the foot of man. These are my enticements, and they
+are sufficient to conquer all fear of danger or death and to induce me to
+commence this laborious voyage with the joy a child feels when he embarks in a
+little boat, with his holiday mates, on an expedition of discovery up his native
+river. But supposing all these conjectures to be false, you cannot contest the
+inestimable benefit which I shall confer on all mankind, to the last generation, by
+discovering a passage near the pole to those countries, to reach which at
+present so many months are requisite; or by ascertaining the secret of the
+magnet, which, if at all possible, can only be effected by an undertaking such as
+mine.
+",0.9840909090909091,35,0.015909090909090907,0.015625
+OpenDyslexic-Bold.png,"1 am already far north of London, and as I walk in the streets of
+Petersburgh, | feel a cold northern breeze play upon my cheeks, which braces
+my nerves and fills me with delight. Do you understand this feeling? This
+breeze, which has travelled from the regions towards which | am advancing,
+gives me a foretaste of those icy climes. Inspirited by this wind of promise,
+my daydreams become more fervent and vivid. | try in vain to be persuaded
+that the pole is the seat of frost and desolation; it ever presents itself to
+my imagination as the region of beauty and delight. There, Margaret, the sun
+is for ever visible, its broad disk just skirting the horizon and diffusing a
+perpetual splendour. There—for with your leave, my sister, | will put some
+trust in preceding navigators—there snow and frost are banished; and, sailing
+over a calm sea, we may be wafted to a land surpassing in wonders and in
+beauty every region hitherto discovered on the habitable globe. Its productions
+and features may be without example, as the phenomena of the heavenly
+bodies undoubtedly are in those undiscovered solitudes. What may not be
+expected in a country of eternal light? | may there discover the wondrous
+power which attracts the needle and may regulate a thousand celestial
+observations that require only this voyage to render their seeming
+eccentricities consistent for ever. | shall satiate my ardent curiosity with the
+sight of a part of the world never before visited, and may tread a land never
+before imprinted by the foot of man. These are my enticements, and they are
+sufficient to conquer all fear of danger or death and to induce me to
+commence this laborious voyage with the joy a child feels when he embarks in
+a little boat, with his holiday mates, on an expedition of discovery up his
+native river. But supposing ail these conjectures to be false, you cannot
+contest the inestimable benefit which | shall confer on all mankind, to the
+last generation, by discovering a passage near the pole to those countries, to
+reach which at present so many months are requisite; or by ascertaining the
+secret of the magnet, which, if at all possible, can only be effected by an
+undertaking such as mine.
+",0.9822727272727273,39,0.017727272727272727,0.0234375
+OpenDyslexic-Italic.png,"1am already far north of London, and as | walk in the streets of Petersburgh, | feel a
+cold northern breeze play upon my cheeks, which braces my nerves and fills me with
+delight. Do you understand this feeling? This breeze, which has travelled from the regions
+towards which | am advancing, gives me a foretaste of those icy climes. Inspirited by this
+wind of promise, my daydreams become more fervent and vivid. | try in vain to be
+persuaded that the pole is the seat of frost and desolation; it ever presents itself to my
+imagination as the region of beauty and delight. There, Margaret, the sun is for ever
+visible, its broad disk just skirting the horizon and diffusing a perpetual splendour.
+There—for with your leave, my sister, | will put some trust in preceding navigators—there
+snow and frost are banished: and, sailing over a calm sea, we may be wafted to a land
+surpassing in wonders and in beauty every region hitherto discovered on the habitable
+globe. Its productions and features may be without example, as the phenomena of the
+heavenly bodies undoubtedly are in those undiscovered solitudes. What may not be
+expected in a country of éternal light? | may there discover the wondrous power which
+attracts the needle and may regulate a thousand celestial observations that require only
+this voyage to render their seeming eccentricities consistent for ever. | shall satiate my
+ardent curiosity with the sight of a part of the world never before visited, and may tread
+a land never before imprinted by the foot of man. These are my enticements, and they
+are sufficient to conquer all fear of danger or death and to induce me to commence this
+laborious voyage with the joy a child feels when he embarks in a little boat, with his
+holiday mates, on an expedition of discovery up his native river. But supposing all these
+conjectures to be false, you cannot contest the inestimable benefit which | shall confer on
+all mankind, to the last generation, by discovering a passage near the pole to those
+countries, to reach which at present so many months are requisite: or by ascertaining the
+secret of the magnet, which, if at all possible, can only be effected by an undertaking
+such as mine.
+",0.9822727272727273,39,0.017727272727272727,0.033854166666666664
+OpenDyslexic-Regular.png,"lam already far north of London, and as | walk in the streets of Petersburgh, |
+feel a cold northern breeze play upon my cheeks, which braces my nerves and fills
+me with delight. Do you understand this feeling? This breeze, which has travelled
+from the regions towards which | am advancing, gives me a foretaste of those icy
+climes. Inspirited by this wind of promise, my daydreams become more fervent and
+vivid. | try in vain to be persuaded that the pole is the seat of frost and
+desolation; it ever presents itself to my imagination as the region of beauty and
+delight. There, Margaret, the sun is for ever visible, its broad disk just skirting the
+horizon and diffusing a perpetual splendour. There—for with your leave, my sister, I
+will put some trust in preceding navigators—there snow and frost are banished; and,
+sailing over a calm sea, we may be wafted to a land surpassing in wonders and in
+beauty every region hitherto discovered on the habitable globe. Its productions and
+features may be without example, as the phenomena of the heavenly bodies
+undoubtedly are in those undiscovered solitudes. What may not be expected in a
+country of eternal light? | may there discover the wondrous power which attracts
+the needle and may regulate a thousand celestial observations that require only this
+voyage to render their seeming eccentricities consistent for ever. | shall satiate my
+ardent curiosity with the sight of a part of the world never before visited, and
+may tread a land never before imprinted by the foot of man. These are my
+enticements, and they are sufficient to conquer all fear of danger or death and to
+induce me to commence this laborious voyage with the joy a child feels when he
+embarks in a little boat, with his holiday mates, on an expedition of discovery up
+his native river. But supposing all these conjectures to be false, you cannot contest
+the inestimable benefit which | shall confer on all mankind, to the last generation,
+by discovering a passage near the pole to those countries, to reach which at
+present so many months are requisite; or by ascertaining the secret of the magnet,
+which, if at all possible, can only be effected by an undertaking such as mine.
+",0.9836363636363636,36,0.016363636363636365,0.0234375

@@ -15,7 +15,7 @@ with open(input_file_path, 'r', encoding='utf-8') as file:
     text = file.read()
 
 # Create a new image for each font
-width, height = 800, 600  # Adjust dimensions as needed
+width, height = 1000, 800  # Adjust dimensions as needed
 line_height = 20  # Adjust line height
 
 # Loop through all font files in the specified folder
