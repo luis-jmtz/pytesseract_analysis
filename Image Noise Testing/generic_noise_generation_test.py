@@ -27,5 +27,5 @@ uniform
 with Image(filename ="OpenDyslexic-Bold-Italic.png") as img:
  
     # Generate noise image using noise() function
-    img.noise("poisson", attenuate = 0.5)
-    img.save(filename ="poisson_OpenDyslexic-Bold-Italic.png")
+    img.noise("uniform", attenuate = 0.9)
+    img.save(filename = r"wand noise images\uniform0.9_OpenDyslexic-Bold-Italic.png")
