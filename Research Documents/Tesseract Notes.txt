@@ -1,0 +1,33 @@
+
+Otsu's algorithm
+    My current understanding is that it finds the point that is the brightess and the point that is the darkerst based on computer logic
+    The range of brightness to darkness is reffered to as Intesnsity. Based on intensity it differentiated into the background and foreground
+    After the background and foreground values are determined, it runs an algorithm that checks if somethings is closer to being the background or the foreground
+
+
+Page Analysis
+    Page layout analysis, one of the first steps of OCR, divides an image into areas
+    of text and non-text, as well as splitting multi-column text into columns [7].
+    The page layout analysis in Tesseract is based on the idea of detecting
+    tab-stops in a document image. It has the following steps[7]:
+    * used the Leptonica library to vertical lines and images
+        basically based on the the areas of darkness and brightness, it tries to find lines for columns and rows
+
+
+Baseline Fitting and Word Detection
+    The median height is used approximate the text size in the region
+    and components (blobs) that are smaller than some fraction of the
+    median height mostly being punctuation, diacritical marks and noise
+    are filtered out.
+
+    The blobs are sorted (into ascending order) using x-coordinate (of the
+    left edge) as the sort key. This sort makes it possible to track the skew
+    across the page.
+
+    Tesseract does word detection by measuring gaps in a limited vertical range
+    between the baseline and mean line[4]. Spaces that are close to the threshold
+    at this stage are made fuzzy, so that a final decision can be made after word
+    recognition.
+
+Word Recognition
+    basically it tries to find the spaces between character and cut them at that point 
