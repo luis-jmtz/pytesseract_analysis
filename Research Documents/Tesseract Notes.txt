@@ -30,4 +30,41 @@ Baseline Fitting and Word Detection
     recognition.
 
 Word Recognition
-    basically it tries to find the spaces between character and cut them at that point 
+    basically it tries to find the spaces between character and cut them at that point (for fix pitched: evenly spaced letters)
+
+    proportional spaceing: Non-fixed-pitch or proportional text spacing is a
+                            highly non-trivial task. Fig. 3 illustrates some typical
+                            problems. The gap between the tens and units of
+                            ‘11.9%’ is a similar size to the general space, and is
+                            certainly larger than the kerned space between ‘erated’
+                            and ‘junk’. There is no horizontal gap at all between
+                            the bounding boxes of ‘of’ and ‘financial’. Tesseract
+                            solves most of these problems by measuring gaps in a
+                            limited vertical range between the baseline and mean
+                            line. Spaces that are close to the threshold at this stage
+                            are made fuzzy, so that a final decision can be made
+                            after word recognition. 
+
+
+Character Seperater
+    Tesseract attempts to improve the result
+    by chopping the blob with worst confidence from the
+    character classifier. Candidate chop points are found
+    from concave vertices of a polygonal approximation
+    [2] of the outline, and may have either another concave
+    vertex opposite, or a line segment. It may take up to 3
+    pairs of chop points to successfully separate joined
+    characters from the ASCII set. 
+        * basically it tries to cut seperate words that are too close based on where it detects curves
+        * if that doesn't work they will then try to reconnect some characters based ona a value I do not fully understand (A star)
+
+Character classifier
+    Static Classification
+        basically tesseract converts the characters into simpler polygonal shapes and then basically runs them through their model which has a library of shapes
+        To try to make it faster " It uses a method similar to Locality Sensitive Hashing (LSH) to create a short list of possible letter matches for each shape."
+        Tesseract then refines these potential matches by measuring the "distance" between the new shape and the prototypes. This distance is calculated by
+        Final Decision: Once Tesseract has calculated distances for potential matches, it uses the K-Nearest Neighbor (KNN) method to pick the best-matching character from the shortlist.
+
+    Adaptive Classification
+        
+    
