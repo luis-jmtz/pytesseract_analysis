@@ -66,5 +66,6 @@ Character classifier
         Final Decision: Once Tesseract has calculated distances for potential matches, it uses the K-Nearest Neighbor (KNN) method to pick the best-matching character from the shortlist.
 
     Adaptive Classification
+        basically it tries to learn the font/style of the text using the static classifier and then run the OCR again with this knowledge
         
     
