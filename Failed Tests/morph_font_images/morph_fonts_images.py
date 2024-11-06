@@ -49,8 +49,8 @@ def apply_morphological_changes(input_folder, morphtype, kernel_size, output_fol
 # Variables
 input_folder = r'normal_font_images'
 morphtype = 'dilation'
-kernel_size = 3         
-output_folder = 'morph_font_images\dilation_kernal3'
+kernel_size = 1
+output_folder = 'morph_font_images\dilation_kernal{kernal_size}'
 
 
 # Run the function
