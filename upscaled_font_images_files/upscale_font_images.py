@@ -2,12 +2,6 @@ import cv2
 import os
 
 
-# Variables
-input_folder = r'upscaled_font_images_files\normal_font_images'
-scale_factor = 1.5
-kernel_size = 3     
-output_folder = r'upscaled_font_images_files\upscaled_font_images'
-
 
 
 def upscale_images(input_folder, scale_factor, kernel_size, output_folder):
@@ -45,4 +39,24 @@ def upscale_images(input_folder, scale_factor, kernel_size, output_folder):
 
 
 
+
+# Variables
+input_folder = r'font_images_data_set_builder\Standard Fonts Images'
+scale_factor = 1.5
+kernel_size = 3     
+output_folder = r'upscaled_font_images_files\upscaled_standard_font_images'
+
 upscale_images(input_folder, scale_factor, kernel_size, output_folder)
+
+
+input_folder = r'font_images_data_set_builder\dyslexia_fonts_images'
+output_folder = r'upscaled_font_images_files\upscaled_dyslexia_font_images'
+
+upscale_images(input_folder, scale_factor, kernel_size, output_folder)
+
+
+input_folder = r'font_images_data_set_builder\Handwritten Font Images'
+output_folder = r'upscaled_font_images_files\upscaled_handwritten_font_images'
+
+upscale_images(input_folder, scale_factor, kernel_size, output_folder)
+
