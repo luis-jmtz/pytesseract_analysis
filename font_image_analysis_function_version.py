@@ -68,18 +68,21 @@ def analyze_images(input_folder, ground_truth_file, output_csv):
             
             print(f"\nAverage Character Accuracy across all images: {average_accuracy:.2%}")
 
+
 # Parameters
-input_folder = r"upscaled_font_images_files\upscaled_handwritten_font_images"
+input_folder = r"font_images_data_set_builder\Handwritten Font Images"
 ground_truth_file = r"font_images_data_set_builder\input.txt"
-output_csv = r"upscaled_handwritten_font_analysis.csv"
+output_csv = r"handwritten_font_analysis.csv"
+
 
 # Run the analysis function
 analyze_images(input_folder, ground_truth_file, output_csv)
 
 
 # Parameters
-input_folder = r"upscaled_font_images_files\upscaled_dyslexia_font_images"
-output_csv = r"upscaled_dyslexia_font_analysis.csv"
+input_folder = r"upscaled_font_images_files\upscaled_handwritten_font_images"
+ground_truth_file = r"font_images_data_set_builder\input.txt"
+output_csv = r"upscaled_handwritten_font_analysis.csv"
 
 # Run the analysis function
 analyze_images(input_folder, ground_truth_file, output_csv)
