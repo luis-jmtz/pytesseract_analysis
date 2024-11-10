@@ -1,20 +1,23 @@
 import os
 from PIL import Image, ImageDraw, ImageFont
 
-def create_char_images(font_path, output_dir, image_size=(64, 64), font_size=48):
+def create_char_images(font_path, output_dir, image_size=(128, 160), font_size=96):
     """
-    Create images for each alphanumeric character using the given font.
+    Create images for each alphanumeric character (upper and lowercase) using the given font.
     
     :param font_path: Path to the .ttf font file
     :param output_dir: Directory where character images will be saved
     :param image_size: Size of the output images (width, height)
     :param font_size: Size of the font to render the characters
     """
-    # Characters to generate (alphanumeric)
+    # Characters to generate (upper and lower case alphanumeric)
     characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     
     # Create the font object
     font = ImageFont.truetype(font_path, font_size)
+    
+    # Get the font ascent and descent (for vertical alignment adjustments)
+    ascent, descent = font.getmetrics()
     
     # Loop through each character and create an image
     for char in characters:
@@ -22,12 +25,14 @@ def create_char_images(font_path, output_dir, image_size=(64, 64), font_size=48)
         image = Image.new("RGB", image_size, "white")
         draw = ImageDraw.Draw(image)
         
-        # Get text bounding box to center it in the image
+        # Get text bounding box to calculate exact positioning
         bbox = draw.textbbox((0, 0), char, font=font)
         text_width = bbox[2] - bbox[0]
         text_height = bbox[3] - bbox[1]
+        
+        # Center the character horizontally, adjust vertically based on font metrics
         text_x = (image_size[0] - text_width) / 2
-        text_y = (image_size[1] - text_height) / 2
+        text_y = (image_size[1] - text_height) / 2 - descent / 2
         
         # Draw the character on the image
         draw.text((text_x, text_y), char, font=font, fill="black")
@@ -38,7 +43,7 @@ def create_char_images(font_path, output_dir, image_size=(64, 64), font_size=48)
 
 def generate_images_for_fonts(fonts_folder, output_base_folder):
     """
-    Loop through each .ttf font in the given folder and generate images for alphanumeric characters.
+    Loop through each .ttf font in the given folder and generate images for upper and lowercase alphanumeric characters.
     
     :param fonts_folder: Directory containing .ttf font files
     :param output_base_folder: Base directory to save the generated images
@@ -57,8 +62,8 @@ def generate_images_for_fonts(fonts_folder, output_base_folder):
             create_char_images(font_path, output_dir)
 
 # Specify the path to the folder containing .ttf fonts and the output directory
-fonts_folder = r"Fonts_To_Convert"
-output_base_folder = r"Font_Image_Folder" 
+fonts_folder = r"Fonts_To_Convert"  # Path to fonts folder
+output_base_folder = r"Font_Image_Folder"  # Path to save images
 
 # Run the script
-generate_images_for_fonts(fonts_folder, output_base_folder) 
+generate_images_for_fonts(fonts_folder, output_base_folder)
