@@ -22,8 +22,10 @@ def create_char_images(font_path, output_dir, image_size=(64, 64), font_size=48)
         image = Image.new("RGB", image_size, "white")
         draw = ImageDraw.Draw(image)
         
-        # Get text size to center it in the image
-        text_width, text_height = draw.textsize(char, font=font)
+        # Get text bounding box to center it in the image
+        bbox = draw.textbbox((0, 0), char, font=font)
+        text_width = bbox[2] - bbox[0]
+        text_height = bbox[3] - bbox[1]
         text_x = (image_size[0] - text_width) / 2
         text_y = (image_size[1] - text_height) / 2
         
@@ -55,8 +57,8 @@ def generate_images_for_fonts(fonts_folder, output_base_folder):
             create_char_images(font_path, output_dir)
 
 # Specify the path to the folder containing .ttf fonts and the output directory
-fonts_folder = "path/to/fonts_folder"  # replace with the path to your fonts folder
-output_base_folder = "path/to/output_folder"  # replace with the path to save images
+fonts_folder = r"Fonts_To_Convert"
+output_base_folder = r"Font_Image_Folder" 
 
 # Run the script
-generate_images_for_fonts(fonts_folder, output_base_folder)
+generate_images_for_fonts(fonts_folder, output_base_folder) 
