@@ -37,6 +37,14 @@ segments is greater than this threshold, we classify it as a curve. A smaller th
 could result in detecting even subtle bends, while a larger threshold would ignore small 
 variations in line direction.
 
+----------------------------------
+Concepts:
+Character Spacing / Kerning: This refers to the spacing between characters in a font. The default character spacing can be retrieved using font metrics, which are embedded in the .ttf file.
+
+
+Advance Width: This is the width of a character, which includes both the character itself and the space to the right of it. The kerning value can affect how characters are spaced in combination with other characters, but we are looking for the "default" or average spacing between characters without any kerning.
+
+
 
 
 
