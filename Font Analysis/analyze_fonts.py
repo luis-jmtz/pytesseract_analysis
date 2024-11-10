@@ -46,11 +46,11 @@ def analyze_character(image_path):
     num_curves = len([1 for angle in np.diff(angles) if abs(angle) > 15])  # Curves when angle change is large
     
     return {
-        "avg_thickness": avg_thickness,
-        "min_thickness": min_thickness,
-        "max_thickness": max_thickness,
-        "avg_angle_to_bottom": avg_angle_to_bottom,
-        "avg_angle_between_lines": avg_angle_between_lines,
+        "avg_thickness (px)": avg_thickness,
+        "min_thickness (px)": min_thickness,
+        "max_thickness (px)": max_thickness,
+        "avg_angle_to_bottom (deg)": avg_angle_to_bottom,
+        "avg_angle_between_lines (deg)": avg_angle_between_lines,
         "avg_num_curves": num_curves
     }
 
@@ -62,11 +62,11 @@ def analyze_font(font_folder):
     :return: Dictionary with aggregated analysis results for the font.
     """
     results = {
-        "avg_thickness": [],
-        "min_thickness": [],
-        "max_thickness": [],
-        "avg_angle_to_bottom": [],
-        "avg_angle_between_lines": [],
+        "avg_thickness (px)": [],
+        "min_thickness (px)": [],
+        "max_thickness (px)": [],
+        "avg_angle_to_bottom (deg)": [],
+        "avg_angle_between_lines (deg)": [],
         "avg_num_curves": []
     }
     
@@ -79,11 +79,11 @@ def analyze_font(font_folder):
     # Aggregate results for the font
     return {
         "font": os.path.basename(font_folder),
-        "avg_thickness": np.mean(results["avg_thickness"]),
-        "min_thickness": np.min(results["min_thickness"]),
-        "max_thickness": np.max(results["max_thickness"]),
-        "avg_angle_to_bottom": np.mean(results["avg_angle_to_bottom"]),
-        "avg_angle_between_lines": np.mean(results["avg_angle_between_lines"]),
+        "avg_thickness (px)": np.mean(results["avg_thickness (px)"]),
+        "min_thickness (px)": np.min(results["min_thickness (px)"]),
+        "max_thickness (px)": np.max(results["max_thickness (px)"]),
+        "avg_angle_to_bottom (deg)": np.mean(results["avg_angle_to_bottom (deg)"]),
+        "avg_angle_between_lines (deg)": np.mean(results["avg_angle_between_lines (deg)"]),
         "avg_num_curves": np.mean(results["avg_num_curves"])
     }
 
