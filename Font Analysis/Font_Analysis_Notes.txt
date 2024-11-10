@@ -17,3 +17,26 @@ PlaywriteGBS-Light.png
 ------------------------------------
 
 Least Accurate Font: HomemadeApple-Regular.png
+
+-----------------------------------------------
+
+Understanding Curve Detection
+A curve in this context refers to a noticeable change in direction 
+along the contour of a character. A simple straight line will have a relatively 
+constant angle between adjacent segments, whereas curves will cause the angle to vary 
+more significantly.
+
+Curve Detection:
+
+Angle Difference: When the difference between the angles of two consecutive 
+line segments exceeds a certain threshold (e.g., 15 degrees), we consider this 
+as an indicator of a curve. This threshold can be adjusted to be more sensitive or more lenient.
+Why 15 degrees?: This is a reasonable heuristic to detect significant 
+changes in direction. If the difference between the angles of two consecutive line 
+segments is greater than this threshold, we classify it as a curve. A smaller threshold 
+could result in detecting even subtle bends, while a larger threshold would ignore small 
+variations in line direction.
+
+
+
+
