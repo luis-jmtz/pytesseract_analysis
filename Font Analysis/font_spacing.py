@@ -69,8 +69,8 @@ def process_fonts_in_folder(fonts_folder, output_csv_path):
                     print(f"Could not calculate spacing for font: {font_name}")
 
 # Example usage:
-fonts_folder = r'Fonts_To_Convert'  # Replace with the folder path containing .ttf files
-output_csv_path = r'font_spacing_results.csv'  # Path to save the output CSV
+fonts_folder = r'Low Accuracy Fonts'  
+output_csv_path = r'low_acc_font_spacing_results.csv' 
 
 process_fonts_in_folder(fonts_folder, output_csv_path)
 print(f"Font spacing data has been saved to: {output_csv_path}")
