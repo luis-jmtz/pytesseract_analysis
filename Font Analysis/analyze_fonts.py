@@ -40,17 +40,27 @@ def analyze_character(image_path):
             angles.append(angle)
     
     avg_angle_to_bottom = np.mean([abs(angle) for angle in angles]) if angles else 0
+    min_angle_to_bottom = np.min([abs(angle) for angle in angles]) if angles else 0
+    max_angle_to_bottom = np.max([abs(angle) for angle in angles]) if angles else 0
+
     avg_angle_between_lines = np.mean(np.diff(angles)) if len(angles) > 1 else 0
+    min_angle_between_lines = np.min(np.diff(angles)) if len(np.diff(angles)) > 0 else 0
+    max_angle_between_lines = np.max(np.diff(angles)) if len(np.diff(angles)) > 0 else 0
 
     # Count curves
-    num_curves = len([1 for angle in np.diff(angles) if abs(angle) > 15])  # Curves when angle change is large
+    angle_diffs = np.diff(angles)
+    num_curves = len([1 for diff in angle_diffs if abs(diff) > 15])  # Curves when angle change is large
     
     return {
         "avg_thickness (px)": avg_thickness,
         "min_thickness (px)": min_thickness,
         "max_thickness (px)": max_thickness,
         "avg_angle_to_bottom (deg)": avg_angle_to_bottom,
+        "min_angle_to_bottom (deg)": min_angle_to_bottom,
+        "max_angle_to_bottom (deg)": max_angle_to_bottom,
         "avg_angle_between_lines (deg)": avg_angle_between_lines,
+        "min_angle_between_lines (deg)": min_angle_between_lines,
+        "max_angle_between_lines (deg)": max_angle_between_lines,
         "avg_num_curves": num_curves
     }
 
@@ -66,7 +76,11 @@ def analyze_font(font_folder):
         "min_thickness (px)": [],
         "max_thickness (px)": [],
         "avg_angle_to_bottom (deg)": [],
+        "min_angle_to_bottom (deg)": [],
+        "max_angle_to_bottom (deg)": [],
         "avg_angle_between_lines (deg)": [],
+        "min_angle_between_lines (deg)": [],
+        "max_angle_between_lines (deg)": [],
         "avg_num_curves": []
     }
     
@@ -83,7 +97,11 @@ def analyze_font(font_folder):
         "min_thickness (px)": np.min(results["min_thickness (px)"]),
         "max_thickness (px)": np.max(results["max_thickness (px)"]),
         "avg_angle_to_bottom (deg)": np.mean(results["avg_angle_to_bottom (deg)"]),
+        "min_angle_to_bottom (deg)": np.min(results["min_angle_to_bottom (deg)"]),
+        "max_angle_to_bottom (deg)": np.max(results["max_angle_to_bottom (deg)"]),
         "avg_angle_between_lines (deg)": np.mean(results["avg_angle_between_lines (deg)"]),
+        "min_angle_between_lines (deg)": np.min(results["min_angle_between_lines (deg)"]),
+        "max_angle_between_lines (deg)": np.max(results["max_angle_between_lines (deg)"]),
         "avg_num_curves": np.mean(results["avg_num_curves"])
     }
 
