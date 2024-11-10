@@ -4,3 +4,16 @@ Top 5 Most Accurate Standard Fonts:
 * times new roman
 * Roboto-BlackItalic
 * ARIALBD 1.png
+
+All of the Dsylexia Fonts
+
+Top 5 most Accurate Handwritten Fonts: 
+Caveat-Bold.png
+Caveat-SemiBold.png
+Caveat-Medium.png
+Caveat-Regular.png
+PlaywriteGBS-Light.png
+
+------------------------------------
+
+Least Accurate Font: HomemadeApple-Regular.png
