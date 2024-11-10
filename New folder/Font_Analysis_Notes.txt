@@ -1,0 +1,7 @@
+Top 5 Most Accurate Standard Fonts: 
+* times new roman bold
+* times new roman bold italic
+* times new roman
+* Roboto-BlackItalic
+* ARIALBD
+
