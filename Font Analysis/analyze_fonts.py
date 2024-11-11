@@ -5,15 +5,10 @@ import pandas as pd
 from glob import glob
 
 def analyze_character(image_path):
-    """
-    Analyze a character image to calculate line thickness, angles, and curve count.
-    
-    :param image_path: Path to the character image.
-    :return: Dictionary with calculated properties.
-    """
+
     # Read image in grayscale
     img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    _, binary = cv2.threshold(img, 200, 255, cv2.THRESH_BINARY_INV)  # Invert colors for analysis
+    _, binary = cv2.threshold(img, 200, 255, cv2.THRESH_BINARY_INV)
     
     # Calculate contours
     contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -65,12 +60,7 @@ def analyze_character(image_path):
     }
 
 def analyze_font(font_folder):
-    """
-    Analyze all character images for a given font.
-    
-    :param font_folder: Path to the folder containing character images for one font.
-    :return: Dictionary with aggregated analysis results for the font.
-    """
+
     results = {
         "avg_thickness (px)": [],
         "min_thickness (px)": [],

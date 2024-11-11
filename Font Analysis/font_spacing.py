@@ -3,12 +3,7 @@ import csv
 from fontTools.ttLib import TTFont
 
 def get_default_character_spacing(font_path):
-    """
-    Calculate the default character spacing (advance width) for a given font.
-    
-    :param font_path: Path to the .ttf font file
-    :return: Default character spacing (advance width)
-    """
+
     # Load the font using fonttools
     font = TTFont(font_path)
     
@@ -39,12 +34,7 @@ def get_default_character_spacing(font_path):
         return None
 
 def process_fonts_in_folder(fonts_folder, output_csv_path):
-    """
-    Process all .ttf fonts in a folder and calculate their default character spacing.
-    
-    :param fonts_folder: Path to the folder containing .ttf font files
-    :param output_csv_path: Path to save the output CSV file
-    """
+
     # Create or open the CSV file for writing the results
     with open(output_csv_path, mode='w', newline='') as csvfile:
         fieldnames = ['Font Name', 'Default Character Spacing (Advance Width)']
