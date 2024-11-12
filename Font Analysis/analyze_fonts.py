@@ -96,11 +96,7 @@ def analyze_font(font_folder):
     }
 
 def analyze_fonts_in_folder(fonts_folder):
-    """
-    Analyze all fonts in the specified folder and store results in a CSV.
-    
-    :param fonts_folder: Base folder containing subfolders for each font.
-    """
+
     analysis_results = []
     
     # Loop over each font folder in the base folder
