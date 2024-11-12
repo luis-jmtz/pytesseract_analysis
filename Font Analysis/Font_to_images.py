@@ -62,8 +62,8 @@ def generate_images_for_fonts(fonts_folder, output_base_folder):
             create_char_images(font_path, output_dir)
 
 # Specify the path to the folder containing .ttf fonts and the output directory
-fonts_folder = r"Low Accuracy Fonts"  # Path to fonts folder
-output_base_folder = r"low_acc_Font_Image_Folder"  # Path to save images
+fonts_folder = r"Fonts"  # Path to fonts folder
+output_base_folder = r"all_Font_Image_Folder"  # Path to save images
 
 # Run the script
 generate_images_for_fonts(fonts_folder, output_base_folder)
