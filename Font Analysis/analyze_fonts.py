@@ -112,7 +112,7 @@ def analyze_fonts_in_folder(fonts_folder):
     df.to_csv("all_ font_analysis.csv", index=False)
 
 # Specify the path to the folder containing folders of font images
-fonts_folder = r"Fonts"  # Path where each font folder is located
+fonts_folder = r"all_Font_Image_Folder"  # Path where each font folder is located
 
 # Run the analysis
 analyze_fonts_in_folder(fonts_folder)
