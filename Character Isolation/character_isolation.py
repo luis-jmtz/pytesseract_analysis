@@ -45,4 +45,4 @@ def isolate_characters(image_path):
     
     return character_images  # Returns list of isolated character images
 
-isolated_characters = isolate_characters(r'Image_test.png')
+isolated_characters = isolate_characters(r'eng_AF_001.jpg')
