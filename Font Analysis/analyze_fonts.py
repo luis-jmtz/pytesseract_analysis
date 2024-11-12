@@ -109,10 +109,10 @@ def analyze_fonts_in_folder(fonts_folder):
     
     # Save results to a CSV
     df = pd.DataFrame(analysis_results)
-    df.to_csv("low_acc_ font_analysis.csv", index=False)
+    df.to_csv("all_ font_analysis.csv", index=False)
 
 # Specify the path to the folder containing folders of font images
-fonts_folder = r"low_acc_Font_Image_Folder"  # Path where each font folder is located
+fonts_folder = r"Fonts"  # Path where each font folder is located
 
 # Run the analysis
 analyze_fonts_in_folder(fonts_folder)
