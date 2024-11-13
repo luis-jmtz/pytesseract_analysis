@@ -62,7 +62,9 @@ def generate_images_for_fonts(fonts_folder, output_base_folder):
             create_char_images(font_path, output_dir)
 
 # Specify the path to the folder containing .ttf fonts and the output directory
-fonts_folder = r"Fonts"  # Path to fonts folder
+
+fonts_folder = r"C:\Users\Main\Documents\Fall 2024 Classes\pytesseract_analysis\font_images_data_set_builder\Collection of Fonts Used\All_fonts_in_one_folder_for_font_analysis"
+
 output_base_folder = r"all_Font_Image_Folder"  # Path to save images
 
 # Run the script
