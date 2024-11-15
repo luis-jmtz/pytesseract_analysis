@@ -1,5 +1,6 @@
 from jpeg_to_png import toPNG
 from up_saturater import saturateColor
+from upscaler import upscaleImage
 
 image_path = r"color_note.jpeg"
 
@@ -26,3 +27,13 @@ try:
     print("Saturation increase successful")
 except ValueError as e:
     print(f"Saturation adjustment failed: {e}")
+
+saturated_path = f"{base_name}_saturated.png"
+
+try:
+    upscaler = upscaleImage(saturated_path, base_name)
+    # Upscale the image by the hard-coded factor (1.5)
+    upscaler.upscale_image()
+    print("Image upscaling successful")
+except ValueError as e:
+    print(f"Image upscaling failed: {e}")
