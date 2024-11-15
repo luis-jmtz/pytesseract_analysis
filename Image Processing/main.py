@@ -1,6 +1,7 @@
 from jpeg_to_png import toPNG
 from up_saturater import saturateColor
 from upscaler import upscaleImage
+from to_BnW import imageBnW
 
 image_path = r"color_note.jpeg"
 
@@ -37,3 +38,15 @@ try:
     print("Image upscaling successful")
 except ValueError as e:
     print(f"Image upscaling failed: {e}")
+    
+
+upscaled_path = f"{base_name}_upscaled.png"
+
+
+try:
+    bnw_converter = imageBnW(upscaled_path, base_name)
+    # Convert to black and white using Otsu's binarization
+    bnw_converter.convert_to_bnw()
+    print("Black and white conversion successful")
+except ValueError as e:
+    print(f"Black and white conversion failed: {e}")
