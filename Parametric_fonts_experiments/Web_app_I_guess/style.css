@@ -1,0 +1,33 @@
+body {
+    font-family: 'Roboto Flex', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .sliders {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  input[type="range"] {
+    width: 300px;
+  }
+  

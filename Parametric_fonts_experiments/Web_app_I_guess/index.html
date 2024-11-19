@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roboto Flex Interactive Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 id="text">The Verge</h1>
+    <div class="sliders">
+      <!-- Slider for weight -->
+      <label for="weight">Weight:</label>
+      <input type="range" id="weight" min="100" max="900" value="400">
+
+      <!-- Slider for width -->
+      <label for="width">Width:</label>
+      <input type="range" id="width" min="25" max="151" value="100">
+
+      <!-- Slider for YOPQ -->
+      <label for="yopq">YOPQ:</label>
+      <input type="range" id="yopq" min="-200" max="200" value="0">
+
+      <!-- Add more sliders as needed -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
