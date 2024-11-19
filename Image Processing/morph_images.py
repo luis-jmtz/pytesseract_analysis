@@ -8,7 +8,7 @@ class morph_processor:
         self.image_path = image_path
         self.base_name = base_name
         self.image = None
-        self.kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))  # Kernel size 3x3
+        self.kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))  
 
     def load_image(self):
         try:
