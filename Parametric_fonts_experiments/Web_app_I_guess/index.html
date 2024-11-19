@@ -10,20 +10,54 @@
 <body>
   <div class="container">
     <h1 id="text">The Verge</h1>
-    <div class="sliders">
-      <!-- Slider for weight -->
-      <label for="weight">Weight:</label>
-      <input type="range" id="weight" min="100" max="900" value="400">
+    <div class="inputs">
+      <!-- Input for Weight -->
+      <label for="weight">Weight (wght):</label>
+      <input type="number" id="weight" value="400" min="100" max="900">
 
-      <!-- Slider for width -->
-      <label for="width">Width:</label>
-      <input type="range" id="width" min="25" max="151" value="100">
+      <!-- Input for Width -->
+      <label for="width">Width (wdth):</label>
+      <input type="number" id="width" value="100" min="25" max="151">
 
-      <!-- Slider for YOPQ -->
+      <!-- Input for Italic (slnt) -->
+      <label for="slant">Slant (slnt):</label>
+      <input type="number" id="slant" value="0" min="-90" max="0">
+
+      <!-- Input for Optical Size -->
+      <label for="opsz">Optical Size (opsz):</label>
+      <input type="number" id="opsz" value="12" min="8" max="144">
+
+      <!-- Input for GRAD -->
+      <label for="grad">Grade (GRAD):</label>
+      <input type="number" id="grad" value="0" min="-200" max="150">
+
+      <!-- Input for XTRA -->
+      <label for="xtra">XTRA:</label>
+      <input type="number" id="xtra" value="468" min="323" max="603">
+
+      <!-- Input for YOPQ -->
       <label for="yopq">YOPQ:</label>
-      <input type="range" id="yopq" min="-200" max="200" value="0">
+      <input type="number" id="yopq" value="0" min="-200" max="200">
 
-      <!-- Add more sliders as needed -->
+      <!-- Input for YTLC -->
+      <label for="ytlc">YTLC:</label>
+      <input type="number" id="ytlc" value="514" min="400" max="600">
+
+      <!-- Input for YTUC -->
+      <label for="ytuc">YTUC:</label>
+      <input type="number" id="ytuc" value="712" min="500" max="800">
+
+      <!-- Input for YTAS -->
+      <label for="ytas">YTAS:</label>
+      <input type="number" id="ytas" value="750" min="600" max="850">
+
+      <!-- Input for YTDE -->
+      <label for="ytde">YTDE:</label>
+      <input type="number" id="ytde" value="-203" min="-300" max="-100">
+
+      <!-- Input for YTFI -->
+      <label for="ytfi">YTFI:</label>
+      <input type="number" id="ytfi" value="738" min="500" max="800">
     </div>
   </div>
   <script src="script.js"></script>

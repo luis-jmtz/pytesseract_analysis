@@ -15,19 +15,34 @@ body {
   
   h1 {
     font-size: 4rem;
+    margin-bottom: 20px;
     transition: all 0.2s ease-in-out;
   }
   
-  .sliders {
-    margin-top: 20px;
+  .inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
   }
   
   label {
-    display: block;
-    margin: 10px 0 5px;
+    font-size: 0.9rem;
   }
   
-  input[type="range"] {
-    width: 300px;
+  input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ffffff;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  input[type="number"]:focus {
+    border-color: #61dafb;
   }
   

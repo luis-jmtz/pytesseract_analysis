@@ -1,26 +1,38 @@
-// Get elements from the DOM
+// Get elements for each axis from the DOM
 const textElement = document.getElementById("text");
-const weightSlider = document.getElementById("weight");
-const widthSlider = document.getElementById("width");
-const yopqSlider = document.getElementById("yopq");
 
-// Function to update the font styles dynamically
+// Map each input ID to its respective axis name
+const inputs = {
+  weight: "wght",
+  width: "wdth",
+  slant: "slnt",
+  opsz: "opsz",
+  grad: "GRAD",
+  xtra: "XTRA",
+  yopq: "YOPQ",
+  ytlc: "YTLC",
+  ytuc: "YTUC",
+  ytas: "YTAS",
+  ytde: "YTDE",
+  ytfi: "YTFI",
+};
+
+// Function to update font variation settings dynamically
 function updateFontStyles() {
-  const weight = weightSlider.value;
-  const width = widthSlider.value;
-  const yopq = yopqSlider.value;
+  const settings = Object.entries(inputs)
+    .map(([id, axis]) => {
+      const value = document.getElementById(id).value;
+      return `"${axis}" ${value}`;
+    })
+    .join(", ");
 
-  textElement.style.fontVariationSettings = `
-    "wght" ${weight},
-    "wdth" ${width},
-    "YOPQ" ${yopq}
-  `;
+  textElement.style.fontVariationSettings = settings;
 }
 
-// Attach event listeners to sliders
-weightSlider.addEventListener("input", updateFontStyles);
-widthSlider.addEventListener("input", updateFontStyles);
-yopqSlider.addEventListener("input", updateFontStyles);
+// Add event listeners to all input fields
+Object.keys(inputs).forEach((id) => {
+  document.getElementById(id).addEventListener("input", updateFontStyles);
+});
 
 // Initialize default styles
 updateFontStyles();
