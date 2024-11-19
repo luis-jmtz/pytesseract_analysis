@@ -5,7 +5,7 @@ from font_slanting import slant_glyph
 
 # font loading, from https://freefontsfamily.org/times-new-roman-font-free/
 
-font_path = f"times new roman.otf"
+font_path = f"RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf"
 # using times new roman because it had a very high accuracy, and it isn't bold or itallized
 font = TTFont(font_path)
 
