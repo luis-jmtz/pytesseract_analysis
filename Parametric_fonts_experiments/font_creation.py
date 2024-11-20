@@ -57,5 +57,7 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value, curviness
         curviness_value (int): Level of curviness (0 is angular, higher values are more curved).
     """
 
+# I might have to ignore curviness for now
+
 # Generate SVGs with specified parameters
 generate_alphanumeric_svgs(700, 0, 0, 45)
