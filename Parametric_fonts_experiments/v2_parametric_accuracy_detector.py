@@ -8,7 +8,7 @@ from collections import Counter
 def process_images(image_folder_path, ground_truth_path, csv_filename, column_value_name='Value'):
     """
     Processes images in a folder, compares their OCR text against a shared ground truth,
-    calculates accuracy based on character frequency matches, and saves results to a CSV file.
+    calculates accuracy based on character frequencies (ignoring order), and saves results to a CSV file.
 
     Parameters:
         image_folder_path (str): Path to the folder containing PNG images.
@@ -27,12 +27,12 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
     # Create a list to store results
     results = []
 
-    # Load and normalize the ground truth text (removing spaces and newlines)
+    # Load and normalize the ground truth text (remove spaces and newlines)
     with open(ground_truth_path, 'r') as file:
         ground_truth = file.read().replace(' ', '').replace('\n', '').strip()
 
-    # Count the frequency of each character in the ground truth
-    ground_truth_counter = Counter(ground_truth)
+    # Convert the ground truth text into a character frequency count
+    ground_truth_count = Counter(ground_truth)
 
     # Loop through each file in the image folder
     for filename in os.listdir(image_folder_path):
@@ -50,19 +50,17 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
                 # Run pytesseract to extract text from the image
                 extracted_text = pytesseract.image_to_string(img).replace(' ', '').replace('\n', '').strip()
 
-                # Count the frequency of each character in the extracted text
-                extracted_text_counter = Counter(extracted_text)
+                # Convert the extracted text into a character frequency count
+                extracted_text_count = Counter(extracted_text)
 
-                # Calculate the match based on frequency of characters
-                total_matches = 0
-                total_chars_in_ground_truth = sum(ground_truth_counter.values())  # Total characters in the ground truth
+                # Calculate the number of correct characters by comparing the character counts
+                correct_characters = sum(min(ground_truth_count[char], extracted_text_count[char]) for char in extracted_text_count)
 
-                for char, count in ground_truth_counter.items():
-                    if char in extracted_text_counter:
-                        total_matches += min(count, extracted_text_counter[char])
+                # Total number of characters in the OCR output
+                total_characters = len(extracted_text)
 
-                # Calculate the accuracy as the ratio of matched characters to the total number of characters in the ground truth
-                accuracy = total_matches / total_chars_in_ground_truth if total_chars_in_ground_truth > 0 else 0.0
+                # Accuracy is the number of correct characters divided by the total number of characters in the OCR output
+                accuracy = correct_characters / total_characters if total_characters > 0 else 0.0
 
                 # Append the result to the list
                 results.append({
