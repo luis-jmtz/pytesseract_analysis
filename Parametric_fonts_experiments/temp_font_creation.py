@@ -38,7 +38,8 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
 
         # Use `font-weight` up to 900, and simulate additional weight with stroke
         effective_weight = min(weight_value, 900)  # Limit font-weight to max 900
-        stroke_weight = max(0, (weight_value - 900) / 10)  # Simulate extra weight with stroke
+        # Gradually increase stroke width for weights above 900
+        stroke_weight = max(0, (weight_value - 900) * 0.005)  # Gentler increase in stroke thickness
 
         dwg.add(dwg.text(
             character,
@@ -63,10 +64,10 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
 
 """
 Parameters:
-    weight_value (int): Line thickness. (Supports values > 900 with stroke simulation)
+    weight_value (int): Line thickness. (Supports values > 900 with smoother stroke simulation)
     slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
     width_value (float): Adjusts the proportions of counters, strokes, spacing, and kerning.
 """
 
 # Generate SVGs with specified parameters
-generate_alphanumeric_svgs(900, 0, 0)
+generate_alphanumeric_svgs(1500, 0, 0)
