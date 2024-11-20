@@ -1,9 +1,7 @@
 import os
 import svgwrite
 
-def generate_alphanumeric_svgs(weight_value, slant_value, width_value, curviness_value):
-
-
+def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
     # Define alphanumeric characters
     numbers = [chr(i) for i in range(48, 58)]  # Digits 0-9
     uppercase = [chr(i) for i in range(65, 91)]  # Uppercase A-Z
@@ -13,7 +11,7 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value, curviness
     alphanumeric_chars = numbers + uppercase + lowercase
 
     # Define output folder naming convention
-    folder_name = f"weight{weight_value}_slant{slant_value}_width{width_value}_curviness{curviness_value}"
+    folder_name = f"weight{weight_value}_slant{slant_value}_width{width_value}"
     output_folder = os.path.join(folder_name)
     os.makedirs(output_folder, exist_ok=True)
 
@@ -48,16 +46,13 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value, curviness
     for char in alphanumeric_chars:
         create_character_svg(char, output_folder)
 
-        
-    """
-    Parameters:
-        weight_value (int): Line thickness.
-        slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
-        width_value (float): Adjusts the proportions of counters, strokes, spacing, and kerning.
-        curviness_value (int): Level of curviness (0 is angular, higher values are more curved).
-    """
 
-# I might have to ignore curviness for now
+"""
+Parameters:
+    weight_value (int): Line thickness.
+    slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
+    width_value (float): Adjusts the proportions of counters, strokes, spacing, and kerning.
+"""
 
 # Generate SVGs with specified parameters
-generate_alphanumeric_svgs(700, 0, 0, 45)
+generate_alphanumeric_svgs(100, -45, 0)
