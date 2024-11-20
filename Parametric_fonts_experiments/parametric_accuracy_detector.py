@@ -5,19 +5,7 @@ import pandas as pd
 import re
 
 def process_images(image_folder_path, ground_truth_path, csv_filename, column_value_name='Value'):
-    """
-    Processes images in a folder, compares their OCR text against a shared ground truth,
-    calculates character-level accuracy (ignoring spaces), and saves results to a CSV file.
 
-    Parameters:
-        image_folder_path (str): Path to the folder containing PNG images.
-        ground_truth_path (str): Path to the text file containing the ground truth.
-        csv_filename (str): Name of the CSV file to save results.
-        column_value_name (str): Custom name for the column storing extracted values.
-
-    Returns:
-        None
-    """
     # Define the column headers
     column_image_name = 'Image Name'
     column_accuracy = 'OCR Accuracy'
@@ -72,30 +60,9 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
 
     print(f"Results saved to {csv_filename}")
 
-# Example usage
-image_folder = r'Images\Grade'  
-ground_truth = r'test_text.txt'
-output_csv = 'grade_accuracy.csv' 
-custom_column_name = 'Grade'  
-
-process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
-
-image_folder = r'Images\Slant'  
-output_csv = 'slant_accuracy.csv' 
-custom_column_name = 'Slant'  
-
-process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
-
 image_folder = r'Images\Weight'  
-output_csv = 'weight_accuracy.csv' 
+ground_truth = r'test_text.txt'
+output_csv = 'Weight_accuracy.csv' 
 custom_column_name = 'Weight'  
 
 process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
-
-image_folder = r'Images\Width'  
-output_csv = 'Width_accuracy.csv' 
-custom_column_name = 'Width'  
-
-process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
-
-#there is an issue with the weight analysis
