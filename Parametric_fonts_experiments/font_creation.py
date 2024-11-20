@@ -56,10 +56,11 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
 
 """
 Parameters:
-    weight_value (int): Line thickness.
+    weight_value (int): Line thickness. (100 - 700)
     slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
     width_value (float): Adjusts the proportions of counters, strokes, spacing, and kerning.
 """
 
+
 # Generate SVGs with specified parameters
-generate_alphanumeric_svgs(100, 45, 0)
+generate_alphanumeric_svgs(950, 0, 0)
