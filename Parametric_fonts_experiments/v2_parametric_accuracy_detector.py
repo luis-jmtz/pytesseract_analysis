@@ -3,9 +3,22 @@ import pytesseract
 import cv2
 import pandas as pd
 import re
+from collections import Counter
 
 def process_images(image_folder_path, ground_truth_path, csv_filename, column_value_name='Value'):
+    """
+    Processes images in a folder, compares their OCR text against a shared ground truth,
+    calculates accuracy based on character frequency matches, and saves results to a CSV file.
 
+    Parameters:
+        image_folder_path (str): Path to the folder containing PNG images.
+        ground_truth_path (str): Path to the text file containing the ground truth.
+        csv_filename (str): Name of the CSV file to save results.
+        column_value_name (str): Custom name for the column storing extracted values.
+
+    Returns:
+        None
+    """
     # Define the column headers
     column_image_name = 'Image Name'
     column_accuracy = 'OCR Accuracy'
@@ -17,6 +30,9 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
     # Load and normalize the ground truth text (removing spaces and newlines)
     with open(ground_truth_path, 'r') as file:
         ground_truth = file.read().replace(' ', '').replace('\n', '').strip()
+
+    # Count the frequency of each character in the ground truth
+    ground_truth_counter = Counter(ground_truth)
 
     # Loop through each file in the image folder
     for filename in os.listdir(image_folder_path):
@@ -34,36 +50,26 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
                 # Run pytesseract to extract text from the image
                 extracted_text = pytesseract.image_to_string(img).replace(' ', '').replace('\n', '').strip()
 
-                # Calculate the accuracy excluding any padding (spaces added for length matching)
-                # Calculate character-level accuracy (ignoring spaces and newlines)
-                max_len = max(len(extracted_text), len(ground_truth))
+                # Count the frequency of each character in the extracted text
+                extracted_text_counter = Counter(extracted_text)
 
-                if max_len > 0:
-                    # Padding is done here, but will exclude it in accuracy calculation
-                    padded_extracted = extracted_text.ljust(max_len)
-                    padded_ground_truth = ground_truth.ljust(max_len)
+                # Calculate the match based on frequency of characters
+                total_matches = 0
+                total_chars_in_ground_truth = sum(ground_truth_counter.values())  # Total characters in the ground truth
 
-                    # Count only non-padded characters for accuracy
-                    valid_matches = 0
-                    valid_characters = 0
+                for char, count in ground_truth_counter.items():
+                    if char in extracted_text_counter:
+                        total_matches += min(count, extracted_text_counter[char])
 
-                    for a, b in zip(padded_extracted, padded_ground_truth):
-                        if a != ' ' and b != ' ':  # Ignore spaces
-                            valid_characters += 1
-                            if a == b:
-                                valid_matches += 1
-                    
-                    # Calculate the accuracy only from non-padded (valid) characters
-                    accuracy = valid_matches / valid_characters if valid_characters > 0 else 0.0
-                else:
-                    accuracy = 0.0  # No ground truth or extracted text
+                # Calculate the accuracy as the ratio of matched characters to the total number of characters in the ground truth
+                accuracy = total_matches / total_chars_in_ground_truth if total_chars_in_ground_truth > 0 else 0.0
 
                 # Append the result to the list
                 results.append({
                     column_image_name: image_name,
                     column_value_name: value,  # Use the dynamic column name
                     column_accuracy: accuracy,
-                    column_output_text: pytesseract.image_to_string(img).strip()  # Original output for reference
+                    column_output_text: extracted_text  # Extracted text for reference
                 })
 
     # Create a DataFrame from the results list
