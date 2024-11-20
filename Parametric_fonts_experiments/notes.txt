@@ -1,0 +1,25 @@
+Website I'm using: https://fontgauntlet.com/
+
+* Weight (wght): 100 - 1000
+    Adjust the style from lighter to bolder in typographic color, by varying stroke weights, 
+    spacing and kerning, and other aspects of the type. This typically changes overall width, 
+    and so may be used in conjunction with Width and Grade axes.
+
+* Grade (GRAD): -200 - 150
+    Finesse the style from lighter to bolder in typographic color, without any changes overall
+    width, line breaks or page layout. Negative grade makes the style lighter, while positive 
+    grade makes it bolder. The units are the same as in the Weight axis.
+
+Slant (slnt): -10 - 0
+    Adjust the style from upright to slanted, also known to typographers as an 'oblique' 
+    style. Rarely, slant can work in the other direction, called a 'backslanted' or 'reverse 
+    oblique' style.
+
+Width (wdth): 25 - 151
+    Adjust the style from narrower to wider, by varying the proportions of counters, strokes,
+    spacing and kerning, and other aspects of the type. This typically changes the 
+    typographic color in a subtle way, and so may be used in conjunction with Weight and 
+    Grade axes.
+
+
+

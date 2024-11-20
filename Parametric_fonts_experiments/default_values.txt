@@ -1,0 +1,8 @@
+Font Size: 12
+Line Height: 1.05
+Character Spacing: 0
+Optical Size: 14
+Weight: 400
+Grade: 0
+Width: 100
+Slant: 0
