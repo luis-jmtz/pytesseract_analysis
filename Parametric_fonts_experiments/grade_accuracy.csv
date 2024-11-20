@@ -1,0 +1,41 @@
+Image Name,Grade,OCR Accuracy,Tesseract Output
+grade_-100.png,-100,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"
+grade_-150.png,-150,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"
+grade_-200.png,-200,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"
+grade_-50.png,-50,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"
+grade_0_default.png,0,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"
+grade_100.png,100,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"
+grade_150.png,150,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"
+grade_50.png,50,0.09216589861751152,"abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+The quick brown fox jumps over the lazy dog
+one two three four five six seven eight nine zero"

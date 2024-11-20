@@ -14,9 +14,9 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
     # Create a list to store results
     results = []
 
-    # Load the ground truth text from the .txt file
+    # Load and normalize the ground truth text
     with open(ground_truth_path, 'r') as file:
-        ground_truth = file.read().replace(' ', '').strip()  # Remove spaces from ground truth
+        ground_truth = file.read().lower().replace('\n', ' ').replace('  ', ' ').strip()
 
     # Loop through each file in the image folder
     for filename in os.listdir(image_folder_path):
@@ -32,9 +32,9 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
                 img = cv2.imread(image_path)
 
                 # Run pytesseract to extract text from the image
-                extracted_text = pytesseract.image_to_string(img).replace(' ', '').strip()  # Remove spaces
+                extracted_text = pytesseract.image_to_string(img).lower().replace('\n', ' ').replace('  ', ' ').strip()
 
-                # Compute character-level accuracy (ignoring spaces)
+                # Compute character-level accuracy (ignoring case, spaces, and newlines)
                 max_len = max(len(extracted_text), len(ground_truth))
                 if max_len > 0:
                     padded_extracted = extracted_text.ljust(max_len)
@@ -49,7 +49,7 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
                     column_image_name: image_name,
                     column_value_name: value,  # Use the dynamic column name
                     column_accuracy: accuracy,
-                    column_output_text: pytesseract.image_to_string(img).strip()  # Original output with spaces
+                    column_output_text: pytesseract.image_to_string(img).strip()  # Original output for reference
                 })
 
     # Create a DataFrame from the results list
@@ -60,9 +60,28 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
 
     print(f"Results saved to {csv_filename}")
 
-image_folder = r'Images\Weight'  
+
+image_folder = r'Images\Grade'  
 ground_truth = r'test_text.txt'
+output_csv = 'grade_accuracy.csv' 
+custom_column_name = 'Grade'  
+
+process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
+
+image_folder = r'Images\Slant'  
+output_csv = 'slant_accuracy.csv' 
+custom_column_name = 'Slant'  
+
+process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
+
+image_folder = r'Images\Weight'  
 output_csv = 'Weight_accuracy.csv' 
 custom_column_name = 'Weight'  
+
+process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
+
+image_folder = r'Images\Width'  
+output_csv = 'Width_accuracy.csv' 
+custom_column_name = 'Width'  
 
 process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
