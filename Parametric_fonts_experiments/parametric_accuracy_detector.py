@@ -14,9 +14,9 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
     # Create a list to store results
     results = []
 
-    # Load and normalize the ground truth text
+    # Load and normalize the ground truth text (removing spaces and newlines)
     with open(ground_truth_path, 'r') as file:
-        ground_truth = file.read().lower().replace('\n', ' ').replace('  ', ' ').strip()
+        ground_truth = file.read().replace(' ', '').replace('\n', '').strip()
 
     # Loop through each file in the image folder
     for filename in os.listdir(image_folder_path):
@@ -32,9 +32,9 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
                 img = cv2.imread(image_path)
 
                 # Run pytesseract to extract text from the image
-                extracted_text = pytesseract.image_to_string(img).lower().replace('\n', ' ').replace('  ', ' ').strip()
+                extracted_text = pytesseract.image_to_string(img).replace(' ', '').replace('\n', '').strip()
 
-                # Compute character-level accuracy (ignoring case, spaces, and newlines)
+                # Compute character-level accuracy (ignoring spaces and newlines)
                 max_len = max(len(extracted_text), len(ground_truth))
                 if max_len > 0:
                     padded_extracted = extracted_text.ljust(max_len)
@@ -60,7 +60,7 @@ def process_images(image_folder_path, ground_truth_path, csv_filename, column_va
 
     print(f"Results saved to {csv_filename}")
 
-
+# Example usage
 image_folder = r'Images\Grade'  
 ground_truth = r'test_text.txt'
 output_csv = 'grade_accuracy.csv' 
