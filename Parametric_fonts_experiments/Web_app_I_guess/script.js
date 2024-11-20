@@ -12,6 +12,7 @@ const inputs = {
 
 // Function to update font variation settings dynamically
 function updateFontStyles() {
+  // Generate font variation settings from input values
   const settings = Object.entries(inputs)
     .map(([id, axis]) => {
       const value = document.getElementById(id).value;
@@ -19,7 +20,9 @@ function updateFontStyles() {
     })
     .join(", ");
 
+  // Apply the settings to the text element
   textElement.style.fontVariationSettings = settings;
+  console.log(`Font settings applied: ${settings}`);
 }
 
 // Add event listeners to all input fields
@@ -27,5 +30,5 @@ Object.keys(inputs).forEach((id) => {
   document.getElementById(id).addEventListener("input", updateFontStyles);
 });
 
-// Initialize default styles
+// Initialize default styles when the page loads
 updateFontStyles();
