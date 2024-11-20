@@ -33,13 +33,12 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
 
         dwg = svgwrite.Drawing(filename=os.path.join(folder, filename), size=(f"{canvas_width}px", f"{canvas_height}px"))
 
+        # Calculate scaling for width adjustment
+        scale_x = 1 + width_value  # Stretch/squeeze x-axis; width_value=0 is default
+        scale_x = max(0.1, scale_x)  # Prevent scale from collapsing completely (set a lower limit)
+
         # Apply text transformations and styling based on parameters
         font_style = f"skewX({-slant_value})"  # Apply slant transformation
-
-        # Use `font-weight` up to 900, and simulate additional weight with stroke
-        effective_weight = min(weight_value, 900)  # Limit font-weight to max 900
-        # Gradually increase stroke width for weights above 900
-        stroke_weight = max(0, (weight_value - 900) * 0.005)  # Gentler increase in stroke thickness
 
         dwg.add(dwg.text(
             character,
@@ -47,13 +46,10 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
             text_anchor="middle",
             alignment_baseline="middle",
             font_size="18px",  # Fixed font size
-            font_weight=str(effective_weight),  # Adjust thickness
+            font_weight=str(weight_value),  # Adjust thickness
             font_family="Arial",  # Simplified styling, can be extended for variety
-            style=f"font-stretch:{width_value};",  # Adjust width
             fill="black",
-            stroke="black",  # Add stroke to simulate extra weight
-            stroke_width=f"{stroke_weight}px",  # Adjust stroke width for additional weight
-            transform=font_style
+            transform=f"{font_style} scale({scale_x}, 1)",  # Scale x-axis only
         ))
         dwg.save()
 
@@ -64,10 +60,10 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
 
 """
 Parameters:
-    weight_value (int): Line thickness. (Supports values > 900 with smoother stroke simulation)
+    weight_value (int): Line thickness.
     slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
-    width_value (float): Adjusts the proportions of counters, strokes, spacing, and kerning.
+    width_value (float): Stretch/squeeze factor for x-axis (0 = default, negative = squeeze, positive = stretch).
 """
 
 # Generate SVGs with specified parameters
-generate_alphanumeric_svgs(1500, 0, 0)
+generate_alphanumeric_svgs(100, 0, -0.5)  # Example: Slightly stretch the width
