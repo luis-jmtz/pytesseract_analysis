@@ -24,14 +24,12 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
         else:  # Digits
             filename = f"{character}.svg"
 
-        # Adjust canvas size based on slant
-        canvas_width = 100 + abs(slant_value) * 2  # Expand canvas width to account for extreme slant
+        # Adjust canvas size and offsets dynamically
+        slant_padding = abs(slant_value) * 2
+        canvas_width = 100 + slant_padding  # Increase canvas width to accommodate slant
         canvas_height = 100
-
-        # Adjust text insertion point
-        x_offset = abs(slant_value) if slant_value < 0 else 0
-        insert_x = 50 + x_offset
-        insert_y = "50%"
+        insert_x = canvas_width / 2  # Center character horizontally
+        insert_y = "50%"  # Center character vertically
 
         dwg = svgwrite.Drawing(filename=os.path.join(folder, filename), size=(f"{canvas_width}px", f"{canvas_height}px"))
 
@@ -64,4 +62,4 @@ Parameters:
 """
 
 # Generate SVGs with specified parameters
-generate_alphanumeric_svgs(100, -45, 0)
+generate_alphanumeric_svgs(100, 45, 0)
