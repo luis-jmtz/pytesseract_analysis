@@ -6,19 +6,7 @@ import re
 from collections import Counter
 
 def process_images(image_folder_path, ground_truth_path, csv_filename, column_value_name='Value'):
-    """
-    Processes images in a folder, compares their OCR text against a shared ground truth,
-    calculates accuracy based on character frequencies (ignoring order), and saves results to a CSV file.
 
-    Parameters:
-        image_folder_path (str): Path to the folder containing PNG images.
-        ground_truth_path (str): Path to the text file containing the ground truth.
-        csv_filename (str): Name of the CSV file to save results.
-        column_value_name (str): Custom name for the column storing extracted values.
-
-    Returns:
-        None
-    """
     # Define the column headers
     column_image_name = 'Image Name'
     column_accuracy = 'OCR Accuracy'
