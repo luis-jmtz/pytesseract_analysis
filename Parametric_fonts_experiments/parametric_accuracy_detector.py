@@ -97,3 +97,5 @@ output_csv = 'Width_accuracy.csv'
 custom_column_name = 'Width'  
 
 process_images(image_folder, ground_truth, output_csv, column_value_name=custom_column_name)
+
+#there is an issue with the weight analysis
