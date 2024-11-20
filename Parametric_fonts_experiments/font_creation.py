@@ -2,13 +2,7 @@ import os
 import svgwrite
 
 def generate_alphanumeric_svgs(weight_value, slant_value, width_value, curviness_value):
-    """
-    Parameters:
-        weight_value (int): Line thickness.
-        slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
-        width_value (float): Adjusts the proportions of counters, strokes, spacing, and kerning.
-        curviness_value (int): Level of curviness (0 is angular, higher values are more curved).
-    """
+
 
     # Define alphanumeric characters
     numbers = [chr(i) for i in range(48, 58)]  # Digits 0-9
@@ -54,5 +48,14 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value, curviness
     for char in alphanumeric_chars:
         create_character_svg(char, output_folder)
 
+        
+    """
+    Parameters:
+        weight_value (int): Line thickness.
+        slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
+        width_value (float): Adjusts the proportions of counters, strokes, spacing, and kerning.
+        curviness_value (int): Level of curviness (0 is angular, higher values are more curved).
+    """
+
 # Generate SVGs with specified parameters
-generate_alphanumeric_svgs(700, 0, 0, 0)
+generate_alphanumeric_svgs(700, 0, 0, 45)
