@@ -60,10 +60,9 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
 
 """
 Parameters:
-    weight_value (int): Line thickness.
-    slant_value (int): Font slant in degrees (-ve for backward, +ve for forward).
-    width_value (float): Stretch/squeeze factor for x-axis (0 = default, negative = squeeze, positive = stretch).
+    weight_value (int): Line thickness. range: 100 - 1500
+    slant_value (int): Font slant in degrees. range: -60 - 60
+    width_value (float): squeezing or stretching only on the x axis. range -0.5 - 1 (where 1 is a 100% increase)
 """
 
-# Generate SVGs with specified parameters
-generate_alphanumeric_svgs(100, 0, -0.5)  # Example: Slightly stretch the width
+generate_alphanumeric_svgs(100, 0, -0.5)
