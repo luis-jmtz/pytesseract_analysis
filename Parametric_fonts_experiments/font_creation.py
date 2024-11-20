@@ -24,13 +24,22 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
         else:  # Digits
             filename = f"{character}.svg"
 
-        dwg = svgwrite.Drawing(filename=os.path.join(folder, filename), size=("100px", "100px"))
+        # Adjust canvas size based on slant
+        canvas_width = 100 + abs(slant_value) * 2  # Expand canvas width to account for extreme slant
+        canvas_height = 100
+
+        # Adjust text insertion point
+        x_offset = abs(slant_value) if slant_value < 0 else 0
+        insert_x = 50 + x_offset
+        insert_y = "50%"
+
+        dwg = svgwrite.Drawing(filename=os.path.join(folder, filename), size=(f"{canvas_width}px", f"{canvas_height}px"))
 
         # Apply text transformations and styling based on parameters
         font_style = f"skewX({-slant_value})"  # Apply slant transformation
         dwg.add(dwg.text(
             character,
-            insert=("50%", "50%"),
+            insert=(f"{insert_x}px", insert_y),
             text_anchor="middle",
             alignment_baseline="middle",
             font_size="18px",  # Fixed font size
