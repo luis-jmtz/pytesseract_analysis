@@ -6,15 +6,8 @@ const inputs = {
   weight: "wght",
   width: "wdth",
   slant: "slnt",
-  opsz: "opsz",
-  grad: "GRAD",
-  xtra: "XTRA",
-  yopq: "YOPQ",
-  ytlc: "YTLC",
-  ytuc: "YTUC",
-  ytas: "YTAS",
-  ytde: "YTDE",
-  ytfi: "YTFI",
+  grade: "GRAD",
+  figureHeight: "YTLC", // YTLC stands for Figure Height in Roboto Flex
 };
 
 // Function to update font variation settings dynamically
