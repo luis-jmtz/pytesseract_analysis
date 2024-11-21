@@ -77,11 +77,12 @@
 
 #         # Save the SVG
 #         dwg.save()
+
 import os
 
 
 class SVGGenerator:
-    def __init__(self, output_folder="generated_svgs", font_size=30, padding_scale=.8, extra_right_padding_scale=2):
+    def __init__(self, output_folder="generated_svgs", font_size=50, padding_scale=1, extra_right_padding_scale=0.5):
         self.output_folder = output_folder
         self.font_size = font_size  # Base font size
         self.padding_scale = padding_scale  # Padding scale relative to font size
@@ -91,14 +92,23 @@ class SVGGenerator:
         os.makedirs(self.output_folder, exist_ok=True)
 
     def generate(self, weight_value=400, slant_value=0, width_value=0, text="AB ab"):
+        """
+        Generates an SVG with the given parameters and text, dynamically adjusting the canvas size.
 
+        Parameters:
+            weight_value (int): Line thickness (100 - 1500).
+            slant_value (int): Font slant in degrees (-60 to 60).
+            width_value (float): Adjusts text proportions along the X-axis (-50 to 50).
+            text (str): The text to be rendered in the SVG.
+        """
         # Adjust font width based on `width_value`
         adjusted_width_factor = max(0.5, 1 + width_value / 100)  # Ensure width factor is not negative
         adjusted_font_size = self.font_size * adjusted_width_factor
 
         # Adjust slant effect
         slant_offset = abs(slant_value) / 60  # Calculate slant effect (max 60 degrees)
-        slant_padding = self.font_size * slant_offset
+        slant_padding_right = self.font_size * slant_offset
+        slant_padding_left = max(0, self.font_size * slant_offset if slant_value < 0 else 0)
 
         # Dynamically determine canvas size and padding
         dynamic_padding = self.font_size * self.padding_scale  # Base padding relative to font size
@@ -106,10 +116,16 @@ class SVGGenerator:
         text_length = len(text)
 
         # Calculate width with slant and width effects
-        width = text_length * adjusted_font_size // 2 + 2 * dynamic_padding + extra_right_padding + slant_padding
+        width = (
+            text_length * adjusted_font_size // 2
+            + 2 * dynamic_padding
+            + extra_right_padding
+            + slant_padding_right
+            + slant_padding_left
+        )
 
         # Calculate height with slant effects
-        height = self.font_size + 2 * dynamic_padding + slant_padding
+        height = self.font_size + 2 * dynamic_padding + slant_padding_right
 
         # Generate file name based on parameters
         file_name = f"weight{weight_value}_slant{slant_value}_width{width_value}.svg"
@@ -120,7 +136,7 @@ class SVGGenerator:
         """
 
         # Add text element to SVG
-        x_position = dynamic_padding
+        x_position = dynamic_padding + slant_padding_left
         y_position = dynamic_padding + self.font_size
 
         svg_content += f"""<text x="{x_position}" y="{y_position}" font-family="Arial" 
@@ -137,7 +153,6 @@ class SVGGenerator:
 
         print(f"SVG created: {output_path}")
         return output_path
-
 
 
 
