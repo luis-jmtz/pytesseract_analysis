@@ -73,10 +73,8 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
 Parameters:
     weight_value (int): Line thickness. range: 100 - 1500
     slant_value (int): Font slant in degrees. range: -60 - 60
-    width_value (float): Adjusts the proportions of text along X-axis.
-                         - Negative values squeeze the text.
-                         - Positive values stretch the text.
-                         - A value of 100 doubles the width.
+    width_value (float): Adjusts the proportions of text along X-axis. range: -50 -75
+
 """
 
 # Generate SVGs with specified parameters
