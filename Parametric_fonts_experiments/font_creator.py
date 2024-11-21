@@ -68,6 +68,7 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
     for char in alphanumeric_chars:
         create_character_svg(char, output_folder)
 
+    return(folder_name)
 
 """
 Parameters:
@@ -77,5 +78,5 @@ Parameters:
 
 """
 
-# Generate SVGs with specified parameters
-generate_alphanumeric_svgs(500, 0, 75)  # Example: Stretch along X-axis by 100%
+temp = generate_alphanumeric_svgs(500, 0, 0)
+print(temp)
