@@ -1,4 +1,4 @@
-// Define the font variation settings with their range and default values
+// Define the font variation settings with their ranges and default values
 const fontSettings = [
     { name: "wght", min: 100, max: 1000, default: 400 }, // Weight
     { name: "wdth", min: 50, max: 200, default: 100 },  // Width
@@ -10,7 +10,7 @@ const fontSettings = [
   const controlsContainer = document.getElementById("controls");
   const textOutput = document.getElementById("text-output");
   
-  // Create sliders and number inputs for each font setting
+  // Generate sliders and inputs for each font setting
   fontSettings.forEach((setting) => {
     const controlGroup = document.createElement("div");
     controlGroup.className = "control-group";
@@ -28,7 +28,7 @@ const fontSettings = [
     slider.step = 1;
     slider.dataset.name = setting.name;
   
-    // Create a number input field
+    // Create a number input
     const numberInput = document.createElement("input");
     numberInput.type = "number";
     numberInput.min = setting.min;
@@ -36,7 +36,7 @@ const fontSettings = [
     numberInput.value = setting.default;
     numberInput.dataset.name = setting.name;
   
-    // Sync the slider and number input
+    // Sync slider and number input
     slider.addEventListener("input", () => {
       numberInput.value = slider.value;
       updateFontSettings();
@@ -54,12 +54,15 @@ const fontSettings = [
     controlsContainer.appendChild(controlGroup);
   });
   
-  // Function to update the font-variation-settings dynamically
+  // Update the font-variation-settings dynamically
   function updateFontSettings() {
-    const settings = Array.from(document.querySelectorAll("input[type=range]"))
+    const settings = Array.from(
+      document.querySelectorAll(".control-group input[type=range]")
+    )
       .map((slider) => `"${slider.dataset.name}" ${slider.value}`)
       .join(", ");
-    textOutput.style.fontVariationSettings = settings;
+    textOutput.style.fontFamily = "'Roboto Flex', sans-serif"; // Ensure font family is applied
+    textOutput.style.fontVariationSettings = settings;        // Apply dynamic settings
   }
   
   // Initialize with default settings
