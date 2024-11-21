@@ -11,14 +11,7 @@ class SVGGenerator:
         os.makedirs(self.output_folder, exist_ok=True)
 
     def generate(self, weight_value, slant_value, width_value):
-        """
-        Generates an SVG for the capital letter A with the given parameters.
 
-        Parameters:
-            weight_value (int): Line thickness. Range: 100 - 1500
-            slant_value (int): Font slant in degrees. Range: -60 - 60
-            width_value (float): Adjusts the proportions of text along X-axis. Range: -50 - 75
-        """
         # Define the file name based on the naming convention
         file_name = f"weight{weight_value}_slant{slant_value}_width{width_value}.svg"
         file_path = os.path.join(self.output_folder, file_name)
@@ -33,21 +26,21 @@ class SVGGenerator:
         font_size = 18
 
         # Scaling factors based on width_value
-        scale_x = 1 + (width_value / 100)
+        scale_x = 1 + (width_value / 100)  # Positive stretches, negative squeezes
         scale_y = 1
 
         # Calculate approximate text dimensions
-        text_width = font_size * 0.6 * scale_x  # Adjust width by scale
-        text_height = font_size * scale_y  # Adjust height by scale
+        text_width = font_size * 0.6 * scale_x  # Adjust width by scale_x
+        text_height = font_size * scale_y  # Adjust height by scale_y
 
         # Adjust for slant transformation (calculate extra width required on the left)
         slant_radians = math.radians(slant_value)
         left_padding_adjustment = text_height * abs(math.tan(slant_radians))
 
-        # Add padding to account for slant and keep enough space on all sides
-        padding = 0.2 * max(text_width, text_height)  # 20% of the largest dimension
-        canvas_width = text_width + left_padding_adjustment + 2 * padding
-        canvas_height = text_height + 2 * padding
+        # Add generous padding to account for slant, width scaling, and extra margin
+        padding = 0.4 * max(text_width, text_height)  # Increase padding to 30% of largest dimension
+        canvas_width = text_width + left_padding_adjustment + 2.5 * padding  # Extra horizontal padding
+        canvas_height = text_height + 2 * padding  # Vertical padding
 
         # Calculate the text insertion point (adjust for left-side slant padding)
         insert_x = left_padding_adjustment + (canvas_width - left_padding_adjustment) / 2
@@ -84,10 +77,3 @@ class SVGGenerator:
 
         # Save the SVG
         dwg.save()
-
-
-# Example usage in main.py
-if __name__ == "__main__":
-    generator = SVGGenerator()
-    output_path = generator.generate(weight_value=500, slant_value=60, width_value=0)
-    print(f"SVG file created at: {output_path}")
