@@ -23,7 +23,7 @@ class SVGGenerator:
 
     def _create_character_svg(self, character, weight_value, slant_value, width_value, file_path):
         # Base font size to calculate dimensions
-        font_size = 18
+        font_size = 30
 
         # Scaling factors based on width_value
         scale_x = 1 + (width_value / 100)  # Positive stretches, negative squeezes
