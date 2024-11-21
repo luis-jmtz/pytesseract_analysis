@@ -81,7 +81,7 @@ import os
 
 
 class SVGGenerator:
-    def __init__(self, output_folder="generated_svgs", font_size=50, padding_scale=0.2, extra_right_padding_scale=0.5):
+    def __init__(self, output_folder="generated_svgs", font_size=30, padding_scale=.8, extra_right_padding_scale=2):
         self.output_folder = output_folder
         self.font_size = font_size  # Base font size
         self.padding_scale = padding_scale  # Padding scale relative to font size
@@ -91,25 +91,25 @@ class SVGGenerator:
         os.makedirs(self.output_folder, exist_ok=True)
 
     def generate(self, weight_value=400, slant_value=0, width_value=0, text="AB ab"):
-        """
-        Generates an SVG with the given parameters and text, dynamically adjusting the canvas size.
 
-        Parameters:
-            weight_value (int): Line thickness (100 - 1500).
-            slant_value (int): Font slant in degrees (-60 to 60).
-            width_value (float): Adjusts text proportions along the X-axis (-50 to 50).
-            text (str): The text to be rendered in the SVG.
-        """
         # Adjust font width based on `width_value`
-        adjusted_width = max(0.5, 1 + width_value / 100)  # Ensure width doesn't go negative
-        adjusted_font_size = self.font_size * adjusted_width
+        adjusted_width_factor = max(0.5, 1 + width_value / 100)  # Ensure width factor is not negative
+        adjusted_font_size = self.font_size * adjusted_width_factor
+
+        # Adjust slant effect
+        slant_offset = abs(slant_value) / 60  # Calculate slant effect (max 60 degrees)
+        slant_padding = self.font_size * slant_offset
 
         # Dynamically determine canvas size and padding
-        dynamic_padding = self.font_size * self.padding_scale  # Padding relative to font size
-        extra_right_padding = self.font_size * self.extra_right_padding_scale  # Extra right padding
+        dynamic_padding = self.font_size * self.padding_scale  # Base padding relative to font size
+        extra_right_padding = self.font_size * self.extra_right_padding_scale  # Extra padding for the right
         text_length = len(text)
-        width = text_length * adjusted_font_size // 2 + 2 * dynamic_padding + extra_right_padding
-        height = self.font_size + 2 * dynamic_padding
+
+        # Calculate width with slant and width effects
+        width = text_length * adjusted_font_size // 2 + 2 * dynamic_padding + extra_right_padding + slant_padding
+
+        # Calculate height with slant effects
+        height = self.font_size + 2 * dynamic_padding + slant_padding
 
         # Generate file name based on parameters
         file_name = f"weight{weight_value}_slant{slant_value}_width{width_value}.svg"
