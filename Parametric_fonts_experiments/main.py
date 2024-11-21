@@ -16,6 +16,10 @@ output_path = generator.generate(weight_value=1000, slant_value=60, width_value=
 
 print(f"SVG file created at: {output_path}")
 
+output_path = generator.generate(weight_value=1000, slant_value=-60, width_value=0)
+
+print(f"SVG file created at: {output_path}")
+
 # Input folder for SVGs (not the file path)
 input_folder = output_folder
 
