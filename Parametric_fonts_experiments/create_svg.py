@@ -40,17 +40,17 @@ class SVGGenerator:
         text_width = font_size * 0.6 * scale_x  # Adjust width by scale
         text_height = font_size * scale_y  # Adjust height by scale
 
-        # Adjust for slant transformation (calculate extra width required)
+        # Adjust for slant transformation (calculate extra width required on the left)
         slant_radians = math.radians(slant_value)
-        slant_adjustment = text_height * abs(math.tan(slant_radians))
+        left_padding_adjustment = text_height * abs(math.tan(slant_radians))
 
-        # Add padding and slant adjustment
+        # Add padding to account for slant and keep enough space on all sides
         padding = 0.2 * max(text_width, text_height)  # 20% of the largest dimension
-        canvas_width = text_width + slant_adjustment + 2 * padding
+        canvas_width = text_width + left_padding_adjustment + 2 * padding
         canvas_height = text_height + 2 * padding
 
-        # Center character dynamically
-        insert_x = canvas_width / 2
+        # Calculate the text insertion point (adjust for left-side slant padding)
+        insert_x = left_padding_adjustment + (canvas_width - left_padding_adjustment) / 2
         insert_y = canvas_height / 2
 
         # Create the SVG canvas
