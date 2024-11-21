@@ -12,18 +12,18 @@ Parameters:
 # Default values: weight400, slant0, width0
 generator = SVGGenerator()
 output_folder = "generated_svgs"  # Define the folder to store SVG files
-output_path = generator.generate(weight_value=1000, slant_value=0, width_value=0)
+output_path = generator.generate(weight_value=1000, slant_value=60, width_value=0)
 
-# print(f"SVG file created at: {output_path}")
+print(f"SVG file created at: {output_path}")
 
-# # Input folder for SVGs (not the file path)
-# input_folder = output_folder
+# Input folder for SVGs (not the file path)
+input_folder = output_folder
 
-# # Output folder for converted PNGs
-# png_output_folder = "converted_svgs"
+# Output folder for converted PNGs
+png_output_folder = "converted_svgs"
 
-# converter = SVGToPNG(input_folder=input_folder, output_folder=png_output_folder)
-# converter.convert_all()
+converter = SVGToPNG(input_folder=input_folder, output_folder=png_output_folder)
+converter.convert_all()
 
 # ocr_processor = TesseractOCR(input_folder=png_output_folder, ground_truth="A")
 # ocr_processor.process_all()
