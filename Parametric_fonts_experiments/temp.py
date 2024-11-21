@@ -24,11 +24,17 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
         else:  # Digits
             filename = f"{character}.svg"
 
-        # Adjust canvas size and offsets dynamically
-        slant_padding = abs(slant_value) * 2
-        canvas_width = 100 + slant_padding  # Increase canvas width to accommodate slant
-        canvas_height = 100
-        insert_x = canvas_width / 2  # Center character horizontally
+        # Calculate scaling factor for X-axis based on width_value
+        scale_x = 1 + (width_value / 100)  # Positive stretches, negative squeezes
+        scale_y = 1  # Keep Y-axis scaling fixed
+
+        # Adjust canvas size dynamically based on scaling
+        base_canvas_width = 100  # Base canvas size
+        canvas_width = int(base_canvas_width * scale_x)  # Dynamically scale width
+        canvas_height = 100  # Fixed height
+
+        # Center character dynamically
+        insert_x = canvas_width / 2
         insert_y = "50%"  # Center character vertically
 
         dwg = svgwrite.Drawing(filename=os.path.join(folder, filename), size=(f"{canvas_width}px", f"{canvas_height}px"))
@@ -36,15 +42,11 @@ def generate_alphanumeric_svgs(weight_value, slant_value, width_value):
         # Apply text transformations and styling based on parameters
         font_style = f"skewX({-slant_value})"  # Apply slant transformation
 
-        # Calculate scaling factor for X-axis based on width_value
-        scale_x = 1 + (width_value / 100)  # Positive stretches, negative squeezes
-        scale_y = 1  # Keep Y-axis scaling fixed
-
         # Use `font-weight` up to 900, and simulate additional weight with stroke
         effective_weight = min(weight_value, 900)  # Limit font-weight to max 900
         stroke_weight = max(0, (weight_value - 900) * 0.005)  # Gradual increase in stroke thickness
 
-        # Apply transformations
+        # Combine scaling and slant transformations
         transform = f"{font_style} scale({scale_x}, {scale_y})"
 
         dwg.add(dwg.text(
@@ -74,7 +76,8 @@ Parameters:
     width_value (float): Adjusts the proportions of text along X-axis.
                          - Negative values squeeze the text.
                          - Positive values stretch the text.
+                         - A value of 100 doubles the width.
 """
 
 # Generate SVGs with specified parameters
-generate_alphanumeric_svgs(500, 0, -100)  # Example: Stretch along X-axis by 25%
+generate_alphanumeric_svgs(500, 0, 75)  # Example: Stretch along X-axis by 100%
