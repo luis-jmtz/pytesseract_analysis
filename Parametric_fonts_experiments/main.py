@@ -1,5 +1,6 @@
 from create_svg import SVGGenerator
 from svg_to_png import SVGToPNG
+from ocr_tesseract import TesseractOCR
 
 """
 Parameters:
@@ -23,3 +24,6 @@ png_output_folder = "converted_svgs"
 
 converter = SVGToPNG(input_folder=input_folder, output_folder=png_output_folder)
 converter.convert_all()
+
+ocr_processor = TesseractOCR(input_folder=png_output_folder, ground_truth="A")
+ocr_processor.process_all()

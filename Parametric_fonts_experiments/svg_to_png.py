@@ -4,13 +4,7 @@ from cairosvg import svg2png
 
 class SVGToPNG:
     def __init__(self, input_folder, output_folder):
-        """
-        Initializes the converter with input and output folder paths.
 
-        Parameters:
-            input_folder (str): Path to the folder containing SVG files.
-            output_folder (str): Path to the folder where PNG files will be saved.
-        """
         self.input_folder = input_folder
         self.output_folder = output_folder
 
@@ -18,10 +12,7 @@ class SVGToPNG:
         os.makedirs(self.output_folder, exist_ok=True)
 
     def convert_all(self):
-        """
-        Converts all SVG files in the input folder to PNG files in the output folder.
-        The PNG files retain the same names as the SVG files, with a white background.
-        """
+
         # Get a list of all SVG files in the input folder
         svg_files = [f for f in os.listdir(self.input_folder) if f.lower().endswith('.svg')]
 
