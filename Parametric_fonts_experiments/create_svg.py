@@ -1,16 +1,11 @@
-import os
 import svgwrite
 
 def generate_A_svg(weight_value, slant_value, width_value):
-    # Define output folder naming convention
-    folder_name = f"weight{weight_value}_slant{slant_value}_width{width_value}"
-    output_folder = os.path.join(folder_name)
-    os.makedirs(output_folder, exist_ok=True)
+    # Define the file name based on the previous folder naming convention
+    file_name = f"weight{weight_value}_slant{slant_value}_width{width_value}.svg"
 
     # Function to create SVG for the capital letter A
-    def create_character_svg(character, folder):
-        filename = f"{character}_upper.svg"
-
+    def create_character_svg(character, file_name):
         # Calculate scaling factor for X-axis based on width_value
         scale_x = 1 + (width_value / 100)  # Positive stretches, negative squeezes
         scale_y = 1  # Keep Y-axis scaling fixed
@@ -24,7 +19,7 @@ def generate_A_svg(weight_value, slant_value, width_value):
         insert_x = canvas_width / 2
         insert_y = "50%"  # Center character vertically
 
-        dwg = svgwrite.Drawing(filename=os.path.join(folder, filename), size=(f"{canvas_width}px", f"{canvas_height}px"))
+        dwg = svgwrite.Drawing(filename=file_name, size=(f"{canvas_width}px", f"{canvas_height}px"))
 
         # Apply text transformations and styling based on parameters
         font_style = f"skewX({-slant_value})"  # Apply slant transformation
@@ -52,9 +47,9 @@ def generate_A_svg(weight_value, slant_value, width_value):
         dwg.save()
 
     # Generate SVG for the capital letter A
-    create_character_svg("A", output_folder)
+    create_character_svg("A", file_name)
 
-    return folder_name
+    return file_name
 
 """
 Parameters:
@@ -64,5 +59,5 @@ Parameters:
 
 """
 
-temp = generate_A_svg(500, 0, 0)
-print(temp)
+temp = generate_A_svg(1200, 0, 0)
+print(f"SVG file created: {temp}")
