@@ -77,3 +77,63 @@
 
 #         # Save the SVG
 #         dwg.save()
+
+import os
+
+
+class SVGGenerator:
+    def __init__(self, output_folder="generated_svgs", font_size=50, padding=20):
+        self.output_folder = output_folder
+        self.font_size = font_size  # Default font size
+        self.padding = padding  # Default padding around text
+
+        # Ensure the output folder exists
+        os.makedirs(self.output_folder, exist_ok=True)
+
+    def generate(self, weight_value=400, slant_value=0, width_value=0, text="AB CD", file_name="output.svg"):
+        """
+        Generates an SVG with the given parameters and text, dynamically adjusting the canvas size.
+
+        Parameters:
+            weight_value (int): Line thickness (100 - 1500).
+            slant_value (int): Font slant in degrees (-60 to 60).
+            width_value (float): Adjusts text proportions along the X-axis (-50 to 50).
+            text (str): The text to be rendered in the SVG.
+            file_name (str): The name of the output SVG file.
+        """
+        # Split the text into lines
+        lines = text.split(" ")
+
+        # Adjust font width based on `width_value`
+        adjusted_width = max(0.5, 1 + width_value / 100)  # Ensure width doesn't go negative
+        adjusted_font_size = self.font_size * adjusted_width
+
+        # Determine canvas dimensions dynamically
+        max_line_length = max(len(line) for line in lines)
+        width = max_line_length * adjusted_font_size // 2 + 2 * self.padding
+        height = len(lines) * self.font_size + 2 * self.padding
+
+        # Start SVG content
+        svg_content = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}px" height="{height}px" viewBox="0 0 {width} {height}">
+            <rect width="100%" height="100%" fill="white"/>
+        """
+
+        # Add text elements to SVG
+        y_position = self.padding + self.font_size  # Start at top padding plus font size
+        for line in lines:
+            svg_content += f"""<text x="{self.padding}" y="{y_position}" font-family="Arial" 
+                font-size="{adjusted_font_size}" font-weight="{weight_value}" 
+                transform="skewX({slant_value})" fill="black">{line}</text>"""
+            y_position += self.font_size  # Move down by font size for the next line
+
+        # Close SVG content
+        svg_content += "</svg>"
+
+        # Write SVG to file
+        output_path = os.path.join(self.output_folder, file_name)
+        with open(output_path, "w") as svg_file:
+            svg_file.write(svg_content)
+
+        print(f"SVG created: {output_path}")
+        return output_path
+
