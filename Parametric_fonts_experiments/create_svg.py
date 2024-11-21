@@ -28,7 +28,7 @@ class SVGGenerator:
 
         return adjusted_width, extra_left, extra_right
 
-    def generate(self, weight_value=400, slant_value=0, width_value=0, text="AB ab"):
+    def generate(self, weight_value=400, slant_value=0, width_value=0, text="ABab"):
         """
         Generates an SVG with the given parameters and text, dynamically adjusting the canvas size.
 
