@@ -12,7 +12,7 @@ Parameters:
 # Default values: weight400, slant0, width0
 generator = SVGGenerator()
 output_folder = "generated_svgs"  # Define the folder to store SVG files
-output_path = generator.generate(weight_value=1000, slant_value=0, width_value=0)
+output_path = generator.generate(weight_value=1000, slant_value=60, width_value=50)
 
 # print(f"SVG file created at: {output_path}")
 

@@ -81,10 +81,11 @@ import os
 
 
 class SVGGenerator:
-    def __init__(self, output_folder="generated_svgs", font_size=50, padding_scale=0.2):
+    def __init__(self, output_folder="generated_svgs", font_size=50, padding_scale=0.2, extra_right_padding_scale=0.5):
         self.output_folder = output_folder
         self.font_size = font_size  # Base font size
         self.padding_scale = padding_scale  # Padding scale relative to font size
+        self.extra_right_padding_scale = extra_right_padding_scale  # Additional right padding scale
 
         # Ensure the output folder exists
         os.makedirs(self.output_folder, exist_ok=True)
@@ -103,10 +104,11 @@ class SVGGenerator:
         adjusted_width = max(0.5, 1 + width_value / 100)  # Ensure width doesn't go negative
         adjusted_font_size = self.font_size * adjusted_width
 
-        # Dynamically determine canvas size
-        text_length = len(text)
+        # Dynamically determine canvas size and padding
         dynamic_padding = self.font_size * self.padding_scale  # Padding relative to font size
-        width = text_length * adjusted_font_size // 2 + 2 * dynamic_padding
+        extra_right_padding = self.font_size * self.extra_right_padding_scale  # Extra right padding
+        text_length = len(text)
+        width = text_length * adjusted_font_size // 2 + 2 * dynamic_padding + extra_right_padding
         height = self.font_size + 2 * dynamic_padding
 
         # Generate file name based on parameters
@@ -135,6 +137,7 @@ class SVGGenerator:
 
         print(f"SVG created: {output_path}")
         return output_path
+
 
 
 
