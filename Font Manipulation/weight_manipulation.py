@@ -30,7 +30,6 @@ def apply_erosion(image_path, output_path="eroded_image.jpg", iterations=1):
     cv2.imwrite(output_path, eroded_image)
     print(f"Eroded image saved at: {output_path}")
 
-# Example usage
-# Provide the path to your input image below
+
 input_image_path = "Tesseract_Test_Image.png"
-apply_erosion(input_image_path, "eroded_image5.png", iterations=2)  # Change iterations to control erosion power
+apply_erosion(input_image_path, "eroded_image7.png", iterations=7)
