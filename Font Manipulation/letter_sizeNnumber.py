@@ -1,6 +1,5 @@
 import os
 import matplotlib.pyplot as plt
-import sys
 
 def generate_images(
     letter, num_letters, letter_spacing, num_iterations, output_folder
@@ -16,7 +15,7 @@ def generate_images(
     # Iterate for each image
     for iteration in range(1, num_iterations + 1):
         # Create a new figure
-        fig, ax = plt.subplots(figsize=(5, 5))  # 500x500 px corresponds to a 5x5 inch figure at 100 DPI
+        fig, ax = plt.subplots(figsize=(5, 5), dpi=100)  # 500x500 px
         ax.set_xlim(0, 500)
         ax.set_ylim(0, 500)
         ax.axis("off")  # Turn off the axis for a clean image
@@ -52,12 +51,12 @@ def generate_images(
                 family="Arial"
             )
 
-        # Save the figure with the new naming scheme
+        # Save the figure with enforced 500x500 px dimensions
         output_path = os.path.join(
             output_folder,
             f"{letter}_{iteration}_{num_letters}_{letter_spacing}.png"
         )
-        plt.savefig(output_path, dpi=100, bbox_inches="tight", pad_inches=0)
+        plt.savefig(output_path, dpi=100, bbox_inches=None, pad_inches=0)
         plt.close(fig)  # Close the figure to release memory
 
     print(f"Images saved in folder: {output_folder}")
@@ -65,9 +64,9 @@ def generate_images(
 # Example usage
 if __name__ == "__main__":
     generate_images(
-        letter="z",
-        num_letters=25,
+        letter="A",
+        num_letters=5,
         letter_spacing=1.5,
         num_iterations=10,
-        output_folder="output2"
+        output_folder="output3"
     )
