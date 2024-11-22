@@ -15,15 +15,19 @@ def generate_images(num_letters, letter_spacing, num_iterations, output_folder="
 
         # Calculate font size and positions
         font_size = iteration  # Use iteration number as font size
-        letter_width = font_size  # Assume width of "A" is proportional to its font size
-        total_width = num_letters * letter_width + (num_letters - 1) * max(letter_spacing, 0)
+        base_spacing = font_size  # The "base" of the A is its font size
+        additional_spacing = letter_spacing * base_spacing
+        letter_width = base_spacing  # Assume the width of "A" scales proportionally with font size
+
+        # Total width of all letters and spaces
+        total_width = num_letters * letter_width + (num_letters - 1) * additional_spacing
         start_x = (500 - total_width) / 2  # Center horizontally
         center_y = 250  # Center vertically
 
-        # Draw the letters
+        # Draw the black "A"s
         for i in range(num_letters):
-            # Position for the black "A"
-            x_position = start_x + i * (letter_width + max(letter_spacing, 0))
+            # Calculate the x position of the current black "A"
+            x_position = start_x + i * (letter_width + additional_spacing)
             ax.text(
                 x_position,
                 center_y,
@@ -35,20 +39,6 @@ def generate_images(num_letters, letter_spacing, num_iterations, output_folder="
                 family="Arial"
             )
 
-            # Position and draw the white "A" for spacing if letter_spacing > 0
-            if i < num_letters - 1 and letter_spacing > 0:
-                x_position_spacing = x_position + letter_width
-                ax.text(
-                    x_position_spacing,
-                    center_y,
-                    "A",
-                    fontsize=font_size,
-                    va="center",
-                    ha="center",
-                    color="white",
-                    family="Arial"
-                )
-
         # Save the figure
         output_path = os.path.join(output_folder, f"image_{iteration:03d}.png")
         plt.savefig(output_path, dpi=100, bbox_inches="tight", pad_inches=0)
@@ -58,4 +48,4 @@ def generate_images(num_letters, letter_spacing, num_iterations, output_folder="
 
 # Example usage
 if __name__ == "__main__":
-    generate_images(num_letters=5, letter_spacing=10, num_iterations=10)
+    generate_images(num_letters=2, letter_spacing=1, num_iterations=25)
