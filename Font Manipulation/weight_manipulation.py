@@ -21,7 +21,7 @@ def apply_erosion(image_path, output_path="eroded_image.jpg", iterations=1):
         return
 
     # Create a 3x3 kernel
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (4, 4))
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
 
     # Apply erosion with the specified number of iterations
     eroded_image = cv2.erode(image, kernel, iterations=iterations)
@@ -33,4 +33,4 @@ def apply_erosion(image_path, output_path="eroded_image.jpg", iterations=1):
 # Example usage
 # Provide the path to your input image below
 input_image_path = "Tesseract_Test_Image.png"
-apply_erosion(input_image_path, "eroded_image3.png", iterations=1)  # Change iterations to control erosion power
+apply_erosion(input_image_path, "eroded_image5.png", iterations=2)  # Change iterations to control erosion power
