@@ -1,1 +1,3 @@
 For my control image, I will use font size 20, letter spacing 1, and 4 letters
+
+Average Line Thickness for Control is 3.6176470588235294
