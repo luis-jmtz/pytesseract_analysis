@@ -1,7 +1,7 @@
 from PIL import Image
 import pytesseract
 
-image_path = r"image_processing_results\grid.png" 
+image_path = r"kernel2.png" 
 
 try:
     # Open the image
