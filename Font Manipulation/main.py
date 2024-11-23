@@ -10,10 +10,10 @@ csv_file = "output_data.csv"
 
 # Initialize constants
 letter = "A"
-num_letters = 5  # Fixed number of letters
-letter_spacing = 1.5  # Fixed letter spacing
+num_letters = 0  # Fixed number of letters
+letter_spacing = 0  # Fixed letter spacing
 output_folder = "output"
-max_iterations = 25  # Iterate up to 25 times
+max_iterations = 48  # Iterate up to 25 times
 
 # Prepare CSV file
 with open(csv_file, mode="w", newline="") as file:
