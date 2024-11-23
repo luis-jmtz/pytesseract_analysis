@@ -1,14 +1,11 @@
 from letter_image_generator import LetterImageGenerator
 
-def main():
-    generator = LetterImageGenerator(
-        letter="A",
-        num_letters=5,
-        letter_spacing=1.5,
-        num_iterations=10,
-        output_folder="output"
-    )
-    generator.generate_images()
 
-if __name__ == "__main__":
-    main()
+output_folder="size_output"
+
+letter = "A"
+
+#                               (letter, num_letters, letter_spacing, num_iterations, output_folder):
+generator = LetterImageGenerator(letter, 1, 0, 50, output_folder)
+generator.generate_images()
+
