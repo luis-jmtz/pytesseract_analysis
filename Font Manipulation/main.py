@@ -4,34 +4,16 @@ import pytesseract
 from PIL import Image
 from letter_sizeNnumber import LetterImageGenerator
 
-# Configure Tesseract
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Update if necessary
 
 # Parameters
 letter = "A"
-num_letters = 0
+num_letters = 1
 letter_spacing = 0
 output_folder = "output"
-max_iterations = 10
+iterations = 10
 csv_file = "output_data.csv"
 
-# Create the output folder if it doesn't exist
-os.makedirs(output_folder, exist_ok=True)
-
-# Step 1: Generate Images
-print("Generating images...")
-for iteration in range(1, max_iterations + 1):
-    # Generate a single image for each iteration
-    generator = LetterImageGenerator(
-        letter=letter,
-        num_letters=num_letters,
-        letter_spacing=letter_spacing,
-        num_iterations=1,  # Generate exactly one image per iteration
-        output_folder=output_folder
-    )
-    generator.generate_images()
-
-print("Image generation complete.")
+generator = LetterImageGenerator(letter, num_letters, letter_spacing, iterations, output_folder)
 
 # Step 2: Perform OCR and Write Results to CSV
 print("Performing OCR and writing results to CSV...")
