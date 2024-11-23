@@ -17,7 +17,7 @@ if image is None:
 _, binary_image = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
 # First loop: Dilation
-for kernel_size in range(1, 3):  # Kernel sizes from 1 to 7
+for kernel_size in range(3, 4):  # Kernel sizes from 1 to 7
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
     dilated_image = cv2.dilate(binary_image, kernel, iterations=1)
     
@@ -25,13 +25,13 @@ for kernel_size in range(1, 3):  # Kernel sizes from 1 to 7
     output_path = os.path.join(output_folder, f"weight_-{kernel_size}.png")
     cv2.imwrite(output_path, dilated_image)
 
-# Second loop: Erosion
-for kernel_size in range(1, 8):  # Kernel sizes from 1 to 7
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
-    eroded_image = cv2.erode(binary_image, kernel, iterations=1)
+# # Second loop: Erosion
+# for kernel_size in range(1, 8):  # Kernel sizes from 1 to 7
+#     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
+#     eroded_image = cv2.erode(binary_image, kernel, iterations=1)
     
-    # Save the eroded image
-    output_path = os.path.join(output_folder, f"weight_{kernel_size}.png")
-    cv2.imwrite(output_path, eroded_image)
+#     # Save the eroded image
+#     output_path = os.path.join(output_folder, f"weight_{kernel_size}.png")
+#     cv2.imwrite(output_path, eroded_image)
 
 print(f"Processing complete. Images are saved in the '{output_folder}' folder.")
