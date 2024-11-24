@@ -1,7 +1,7 @@
 from PIL import Image
 import pytesseract
 
-image_path = r"kernel2.png" 
+image_path = r"output_image_with_italic_text.png" 
 
 try:
     # Open the image
