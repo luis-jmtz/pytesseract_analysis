@@ -1,16 +1,7 @@
 from PIL import Image
 
 def italicize_text_in_image_with_proper_padding(input_image_path, output_image_path, top_left, bottom_right, slant_factor):
-    """
-    Italicize the text in an image by skewing the area of the image containing the text.
-    Dynamically adjusts the cropping area and ensures proper alignment after skewing.
 
-    :param input_image_path: Path to the input image.
-    :param output_image_path: Path to save the output image.
-    :param top_left: Tuple (x1, y1) representing the top-left corner of the text region.
-    :param bottom_right: Tuple (x2, y2) representing the bottom-right corner of the text region.
-    :param slant_factor: Integer determining the slant intensity and direction (positive = right, negative = left).
-    """
     # Open the image
     image = Image.open(input_image_path)
 
