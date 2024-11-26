@@ -2,7 +2,6 @@ from PIL import Image
 
 class TextSlanter:
     def __init__(self, input_image_path, output_image_path):
-
         self.input_image_path = input_image_path
         self.output_image_path = output_image_path
 
@@ -11,7 +10,6 @@ class TextSlanter:
         self.bottom_right = (500, 261)  # Bottom-right coordinates of the text region
 
     def italicize_text(self, slant_factor):
-
         # Open the image
         image = Image.open(self.input_image_path)
 
@@ -44,9 +42,16 @@ class TextSlanter:
             resample=Image.BICUBIC
         )
 
+        # Calculate offset to re-center the text
+        offset = int((padding * skew_value) / 2)
+        if slant_factor > 0:
+            paste_x1 = crop_x1 - offset  # Shift left for positive slant
+        else:
+            paste_x1 = crop_x1 + offset  # Shift right for negative slant
+
         # Paste the transformed text area back onto the original image
-        image.paste(italicized_text_area, (crop_x1, y1))
+        image.paste(italicized_text_area, (paste_x1, y1))
 
         # Save the modified image
         image.save(self.output_image_path)
-        print(f"Saved slanted: {slant_factor} to {self.output_image_path}")
+        print(f"Saved slanted image with slant factor {slant_factor} to {self.output_image_path}")
