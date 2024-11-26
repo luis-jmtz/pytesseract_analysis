@@ -2,9 +2,7 @@ from PIL import Image
 
 class TextSlanter:
     def __init__(self, input_image_path, output_image_path):
-        """
-        Initializes the TextItalicizer with paths and hard-coded text region coordinates.
-        """
+
         self.input_image_path = input_image_path
         self.output_image_path = output_image_path
 
@@ -13,9 +11,7 @@ class TextSlanter:
         self.bottom_right = (307, 261)  # Bottom-right coordinates of the text region
 
     def italicize_text(self, slant_factor):
-        """
-        Italicizes the text within the hard-coded region of the image by the specified slant factor.
-        """
+
         # Open the image
         image = Image.open(self.input_image_path)
 
@@ -53,4 +49,4 @@ class TextSlanter:
 
         # Save the modified image
         image.save(self.output_image_path)
-        print(f"Saved italicized image with slant factor {slant_factor} to {self.output_image_path}")
+        print(f"Saved slanted: {slant_factor} to {self.output_image_path}")
