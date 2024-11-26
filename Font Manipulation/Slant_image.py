@@ -42,12 +42,15 @@ class TextSlanter:
             resample=Image.BICUBIC
         )
 
-        # Calculate offset to re-center the text
-        offset = int((padding * skew_value) / 2)
-        if slant_factor > 0:
-            paste_x1 = crop_x1 - offset  # Shift left for positive slant
+        # Handle re-centering for negative slant
+        if slant_factor < 0:
+            # Shift the text further to the right
+            offset = int(abs(padding * skew_value))  # Use full padding to shift
+            paste_x1 = crop_x1 + offset
         else:
-            paste_x1 = crop_x1 + offset  # Shift right for negative slant
+            # For completeness, include positive slant logic
+            offset = int(padding * skew_value * 0.75)  # Adjust for positive slants
+            paste_x1 = crop_x1 - offset
 
         # Paste the transformed text area back onto the original image
         image.paste(italicized_text_area, (paste_x1, y1))
