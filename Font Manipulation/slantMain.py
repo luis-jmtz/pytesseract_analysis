@@ -1,7 +1,7 @@
 from Slant_image import TextSlanter
 
 
-slant_value = -60
+slant_value = 60
 image_name = f"{slant_value}_Slant.png"
 
 # Define input and output image paths

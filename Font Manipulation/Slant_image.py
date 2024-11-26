@@ -7,8 +7,8 @@ class TextSlanter:
         self.output_image_path = output_image_path
 
         # Hard-coded coordinates for the text region
-        self.top_left = (192, 240)  # Top-left coordinates of the text region
-        self.bottom_right = (307, 261)  # Bottom-right coordinates of the text region
+        self.top_left = (0, 240)  # Top-left coordinates of the text region
+        self.bottom_right = (500, 261)  # Bottom-right coordinates of the text region
 
     def italicize_text(self, slant_factor):
 
