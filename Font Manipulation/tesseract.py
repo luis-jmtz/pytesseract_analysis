@@ -1,7 +1,7 @@
 from PIL import Image
 import pytesseract
 
-image_path = r"output_image_with_italic_text.png" 
+image_path = r"Control_Image_three.png" 
 
 try:
     # Open the image
