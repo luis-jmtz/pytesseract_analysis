@@ -1,68 +1,56 @@
 from PIL import Image
 
-def italicize_text_in_image_with_proper_padding(input_image_path, output_image_path, top_left, bottom_right, slant_factor):
+class TextSlanter:
+    def __init__(self, input_image_path, output_image_path):
+        """
+        Initializes the TextItalicizer with paths and hard-coded text region coordinates.
+        """
+        self.input_image_path = input_image_path
+        self.output_image_path = output_image_path
 
-    # Open the image
-    image = Image.open(input_image_path)
+        # Hard-coded coordinates for the text region
+        self.top_left = (192, 240)  # Top-left coordinates of the text region
+        self.bottom_right = (307, 261)  # Bottom-right coordinates of the text region
 
-    # Calculate width and height from coordinates
-    x1, y1 = top_left
-    x2, y2 = bottom_right
-    width = x2 - x1
-    height = y2 - y1
+    def italicize_text(self, slant_factor):
+        """
+        Italicizes the text within the hard-coded region of the image by the specified slant factor.
+        """
+        # Open the image
+        image = Image.open(self.input_image_path)
 
-    # Calculate padding based on slant factor and height
-    padding = abs(slant_factor)  # Padding is proportional to the absolute value of slant factor
-    padded_width = width + padding  # Add padding to the cropped width
+        # Extract coordinates and dimensions
+        x1, y1 = self.top_left
+        x2, y2 = self.bottom_right
+        width = x2 - x1
+        height = y2 - y1
 
-    # Adjust cropping to include extra padding on the appropriate side
-    if slant_factor > 0:  # Positive slant (rightward)
-        crop_x1 = x1
-        crop_x2 = x2 + padding
-        paste_x1 = x1  # Align the skewed text back to the left side
-    else:  # Negative slant (leftward)
-        crop_x1 = x1 - padding
-        crop_x2 = x2
-        paste_x1 = x1 - padding  # Align the skewed text back to the original starting point
+        # Calculate padding based on slant factor
+        padding = int(abs(slant_factor))  # Padding is proportional to the absolute value of slant factor
+        padded_width = width + 2 * padding  # Add padding to both sides of the cropped width
 
-    # Crop the text area with extra padding
-    text_area = image.crop((crop_x1, y1, crop_x2, y2))
+        # Adjust cropping to include extra padding on both sides
+        crop_x1 = max(0, x1 - padding)
+        crop_x2 = min(image.width, x2 + padding)
 
-    # Calculate skew matrix based on the slant factor
-    skew_value = slant_factor / height  # Normalize slant_factor based on text height
-    skew_matrix = (1, skew_value, 0, 0, 1, 0)
+        # Crop the text area with extra padding
+        text_area = image.crop((crop_x1, y1, crop_x2, y2))
 
-    # Apply affine transformation to skew the text area
-    italicized_text_area = text_area.transform(
-        (padded_width, height),
-        Image.AFFINE,
-        skew_matrix,
-        resample=Image.BICUBIC
-    )
+        # Calculate skew matrix based on the slant factor
+        skew_value = slant_factor / height  # Normalize slant_factor based on text height
+        skew_matrix = (1, skew_value, -padding * skew_value, 0, 1, 0)
 
-    # Paste the transformed text area back onto the original image
-    image.paste(italicized_text_area, (paste_x1, y1))
+        # Apply affine transformation to skew the text area
+        italicized_text_area = text_area.transform(
+            (padded_width, height),
+            Image.AFFINE,
+            skew_matrix,
+            resample=Image.BICUBIC
+        )
 
-    # Save the modified image
-    image.save(output_image_path)
+        # Paste the transformed text area back onto the original image
+        image.paste(italicized_text_area, (crop_x1, y1))
 
-# Example usage
-input_image_path = "Control_Image.png"  # Path to your input image
-output_image_path_positive = "positive_slant.png"  # Positive slant output
-output_image_path_negative = "negative_slant.png"  # Negative slant output
-top_left = (192, 240)  # Top-left coordinates of the text region
-bottom_right = (307, 261)  # Bottom-right coordinates of the text region
-
-# Apply the transformation
-slant_factor_positive = 20  # Positive slant
-slant_factor_negative = -20  # Negative slant
-
-# Positive slant
-italicize_text_in_image_with_proper_padding(
-    input_image_path, output_image_path_positive, top_left, bottom_right, slant_factor_positive
-)
-
-# Negative slant
-italicize_text_in_image_with_proper_padding(
-    input_image_path, output_image_path_negative, top_left, bottom_right, slant_factor_negative
-)
+        # Save the modified image
+        image.save(self.output_image_path)
+        print(f"Saved italicized image with slant factor {slant_factor} to {self.output_image_path}")
