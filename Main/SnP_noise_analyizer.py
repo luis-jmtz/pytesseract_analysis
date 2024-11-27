@@ -5,9 +5,9 @@ from PIL import Image
 import pandas as pd
 
 # Input folder containing the images
-input_folder = r"noisy_images_v2"
+input_folder = r"noisy_images_v2-3"
 # Output CSV file
-output_csv = "SnP_noise_v2_analysis.csv"
+output_csv = "SnP_noise_v2-3_analysis.csv"
 # Base truth for comparison
 base_truth = "AAAA"
 # Data list to store rows for the CSV
@@ -24,6 +24,9 @@ for root, dirs, files in os.walk(input_folder):
                 # Open the image
                 img = Image.open(image_path)
                 # Perform OCR
+                
+                print(image_path + " opened")
+                
                 detected_text = pytesseract.image_to_string(img).strip()
 
                 # Determine if any text was detected
