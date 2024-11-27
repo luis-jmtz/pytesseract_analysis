@@ -2,3 +2,6 @@ For my control image, I will use font size 20, letter spacing 1, and 4 letters
 
 Average Line Thickness for Control is 3.6176470588235294
     unable to make more micro-adjustments for line thickness for the time
+
+the space between the base of the letters is 12px
+    the cropped control is 20px tall
