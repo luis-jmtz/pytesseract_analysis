@@ -5,3 +5,7 @@ Average Line Thickness for Control is 3.6176470588235294
 
 the space between the base of the letters is 12px
     the cropped control is 20px tall
+
+I need to calculate the relative noise in an image
+
+I want to use perlin noise to simulate poor lighting condition
