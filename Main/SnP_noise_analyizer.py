@@ -5,9 +5,9 @@ from PIL import Image
 import pandas as pd
 
 # Input folder containing the images
-input_folder = r"noisy images"
+input_folder = r"noisy_images_v2"
 # Output CSV file
-output_csv = "SnP_noise_analysis.csv"
+output_csv = "SnP_noise_v2_analysis.csv"
 # Base truth for comparison
 base_truth = "AAAA"
 # Data list to store rows for the CSV

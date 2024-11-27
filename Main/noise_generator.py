@@ -47,6 +47,6 @@ class noiseMaker:
     def process_and_save(self, image_path):
 
         noisy_image = self.apply_noise(image_path)
-        output_path = fr"noisy images\{self.strength}_SnP.png"
+        output_path = fr"noisy_images_v2-2\{self.strength}_SnP.png"
         self.save_image(noisy_image, output_path)
         print(f"Noisy image: {output_path}")
