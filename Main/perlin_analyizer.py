@@ -5,9 +5,9 @@ from PIL import Image
 import pandas as pd
 
 # Input folder containing the images
-input_folder = r"perlin_images1-2"
+input_folder = r"perlin_images1-3"
 # Output CSV file
-output_csv = "perlin_noise_analysis1-2.csv"
+output_csv = "perlin_noise_analysis1-3.csv"
 # Base truth for comparison
 base_truth = "AAAA"
 # Data list to store rows for the CSV
