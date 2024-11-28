@@ -1,6 +1,6 @@
 from perlin_generator import perlinNoiser
 
-changing_intensity = 0.06
+changing_intensity = 0.1
 
 
 # processor = perlinNoiser("Control_Image.png", changing_intensity,
@@ -8,7 +8,7 @@ changing_intensity = 0.06
 # processor.process_image()
 
 
-while changing_intensity <= 0.1:
+while changing_intensity <= 0.9:
     
     rounded_intensity = round(changing_intensity, 3)
     
@@ -17,7 +17,7 @@ while changing_intensity <= 0.1:
 
     processor.process_image()
     
-    changing_intensity += 0.01
+    changing_intensity += 0.1
     
 
 
