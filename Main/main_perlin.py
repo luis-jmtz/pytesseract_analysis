@@ -1,21 +1,20 @@
 from perlin_generator import perlinNoiser
 
-changing_intensity = 0.9
+changing_intensity = 0.01
 
 
-processor = perlinNoiser("Control_Image.png", changing_intensity,
-fr"perlin_images\{changing_intensity}.png")
+# processor = perlinNoiser("Control_Image.png", changing_intensity,
+#     fr"perlin_images1-2\{changing_intensity}_perlin1-2.png")
+# processor.process_image()
 
-processor.process_image()
 
+while changing_intensity <= 0.1:
+    processor = perlinNoiser("Control_Image.png", changing_intensity,
+    fr"perlin_images1-3\{changing_intensity}_perlin1-3.png")
 
-# while changing_intensity <= 0.1:
-#     processor = perlinNoiser("Control_Image.png", changing_intensity,
-#     fr"perlin_images\{changing_intensity}.png")
-
-#     processor.process_image()
+    processor.process_image()
     
-#     changing_intensity += 0.01
+    changing_intensity += 0.01
 
 # changing_intensity = 0.1
 
