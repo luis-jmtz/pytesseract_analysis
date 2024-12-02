@@ -21,7 +21,7 @@ try:
 except ValueError:
     print("toPNG Failure")
     
-png_path = f"{base_name}.png"
+png_path = fr"PNG_images\{base_name}.png"
 
 try:
     saturator = saturateColor(png_path)
