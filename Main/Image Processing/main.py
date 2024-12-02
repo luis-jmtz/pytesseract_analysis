@@ -31,7 +31,7 @@ try:
 except ValueError as e:
     print(f"Saturation adjustment failed: {e}")
 
-saturated_path = f"{base_name}_saturated.png"
+saturated_path = fr"Saturated_Images\{base_name}_saturated.png"
 
 try:
     upscaler = upscaleImage(saturated_path, base_name)
