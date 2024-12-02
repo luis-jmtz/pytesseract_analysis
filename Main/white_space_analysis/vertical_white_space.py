@@ -28,7 +28,7 @@ class whiteSpacer:
                 new_img = Image.new("RGB", (width, new_height), "white")
                 new_img.paste(img, (0, num_lines))
 
-            output_path = fr"T_white_space_images\{num_lines}_whiteSpace.png"
+            output_path = fr"B_white_space_images\{num_lines}_whiteSpace.png"
             new_img.save(output_path)
             return output_path
         except Exception as e:
