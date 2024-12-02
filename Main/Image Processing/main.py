@@ -42,7 +42,7 @@ except ValueError as e:
     print(f"Image upscaling failed: {e}")
     
 
-upscaled_path = f"{base_name}_upscaled.png"
+upscaled_path = fr"Upscaled_Images\{base_name}_upscaled.png"
 
 
 try:
@@ -54,7 +54,7 @@ except ValueError as e:
     print(f"Black and white conversion failed: {e}")
     
 
-BnW_image_path = f"{base_name}_BnW.png"
+BnW_image_path = fr"BnW_Images\{base_name}_BnW.png"
 
 try:
     morpher = morph_processor(BnW_image_path, base_name)

@@ -8,11 +8,10 @@ class morph_processor:
         self.image_path = image_path
         self.base_name = base_name
         self.image = None
-        self.kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))  
+        self.kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
 
     def load_image(self):
         try:
-            # Open the image in grayscale mode for processing
             self.image = Image.open(self.image_path).convert("L")
         except IOError:
             print("Error: Unable to open the file.")
@@ -23,20 +22,16 @@ class morph_processor:
         if not self.load_image():
             return
 
-        # Convert the Pillow image to a NumPy array for OpenCV processing
         image_np = np.array(self.image)
-
-        # Apply morphological opening
         opened_image = cv2.morphologyEx(image_np, cv2.MORPH_OPEN, self.kernel)
-
-        # Apply morphological closing
         closed_image = cv2.morphologyEx(opened_image, cv2.MORPH_CLOSE, self.kernel)
 
-        # Convert the final processed image back to a Pillow image
         morphed_image = Image.fromarray(closed_image)
 
-        # Save the processed image
-        morphed_image_path = f"{self.base_name}_morphed.png"
+        folder_name = "Final_Out_Images"
+        os.makedirs(folder_name, exist_ok=True)
+
+        morphed_image_path = os.path.join(folder_name, f"{self.base_name}_morphed.png")
         morphed_image.save(morphed_image_path)
         print(f"Morphs complete. Image saved at: {morphed_image_path}")
 
