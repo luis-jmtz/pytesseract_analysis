@@ -5,18 +5,26 @@ from PIL import Image
 import pandas as pd
 
 
-from vertical_white_space import whiteSpacer
+
+from staggered_white_space import staggeredWhiteSpacer
 
 white_space = 1
-spacer = whiteSpacer("Control_Image_cropped.png")
-
+spacer = staggeredWhiteSpacer("Control_Image_cropped.png", "sT_white_space_images")
 
 while white_space < 101:
-    output_file = spacer.add_white_lines(white_space, 2)
+
+    output_file = spacer.add_staggered_white_lines(white_space, position=1)
     print(f"Output file: {output_file}")
     white_space += 1
 
+white_space = 1
+spacer = staggeredWhiteSpacer("Control_Image_cropped.png", "sB_white_space_images")
 
+while white_space < 101:
+
+    output_file = spacer.add_staggered_white_lines(white_space, position=2)
+    print(f"Output file: {output_file}")
+    white_space += 1
 
 
 
@@ -63,6 +71,17 @@ while white_space < 101:
 
 
 
+
+# from vertical_white_space import whiteSpacer
+
+# white_space = 1
+# spacer = whiteSpacer("Control_Image_cropped.png")
+
+
+# while white_space < 101:
+#     output_file = spacer.add_white_lines(white_space, 2)
+#     print(f"Output file: {output_file}")
+#     white_space += 1
 
 
 
