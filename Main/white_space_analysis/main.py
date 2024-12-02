@@ -4,31 +4,18 @@ import pytesseract
 from PIL import Image
 import pandas as pd
 
+from spacing_analysis import SpacerAnalyzer
 
+# Parameters for OCR analysis
+input_folder = r"T_white_space_images"
+output_csv = "T_white_space_analysis.csv"
+base_truth = "AAAA"
 
-from staggered_white_space import staggeredWhiteSpacer
+# Create an instance of OCRAnalyzer
+analyzer = SpacerAnalyzer(input_folder, output_csv, base_truth)
 
-white_space = 1
-spacer = staggeredWhiteSpacer("Control_Image_cropped.png", "sT_white_space_images")
-
-while white_space < 101:
-
-    output_file = spacer.add_staggered_white_lines(white_space, position=1)
-    print(f"Output file: {output_file}")
-    white_space += 1
-
-white_space = 1
-spacer = staggeredWhiteSpacer("Control_Image_cropped.png", "sB_white_space_images")
-
-while white_space < 101:
-
-    output_file = spacer.add_staggered_white_lines(white_space, position=2)
-    print(f"Output file: {output_file}")
-    white_space += 1
-
-
-
-
+# Perform OCR analysis
+analyzer.analyze_images()
 
 
 
@@ -85,3 +72,22 @@ while white_space < 101:
 
 
 
+# from staggered_white_space import staggeredWhiteSpacer
+
+# white_space = 1
+# spacer = staggeredWhiteSpacer("Control_Image_cropped.png", "sT_white_space_images")
+
+# while white_space < 101:
+
+#     output_file = spacer.add_staggered_white_lines(white_space, position=1)
+#     print(f"Output file: {output_file}")
+#     white_space += 1
+
+# white_space = 1
+# spacer = staggeredWhiteSpacer("Control_Image_cropped.png", "sB_white_space_images")
+
+# while white_space < 101:
+
+#     output_file = spacer.add_staggered_white_lines(white_space, position=2)
+#     print(f"Output file: {output_file}")
+#     white_space += 1
