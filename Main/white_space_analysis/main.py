@@ -6,15 +6,35 @@ import pandas as pd
 
 from spacing_analysis import SpacerAnalyzer
 
-# Parameters for OCR analysis
-input_folder = r"T_white_space_images"
-output_csv = "T_white_space_analysis.csv"
 base_truth = "AAAA"
+
+# Parameters
+input_folder = r"sT_white_space_images"
+output_csv = "sT_white_space_analysis.csv"
+
 
 # Create an instance of OCRAnalyzer
 analyzer = SpacerAnalyzer(input_folder, output_csv, base_truth)
+analyzer.analyze_images()
 
-# Perform OCR analysis
+
+# Parameters
+input_folder = r"sB_white_space_images"
+output_csv = "sB_white_space_analysis.csv"
+
+
+# Create an instance of OCRAnalyzer
+analyzer = SpacerAnalyzer(input_folder, output_csv, base_truth)
+analyzer.analyze_images()
+
+
+# Parameters
+input_folder = r"B_white_space_images"
+output_csv = "B_white_space_analysis.csv"
+
+
+# Create an instance of OCRAnalyzer
+analyzer = SpacerAnalyzer(input_folder, output_csv, base_truth)
 analyzer.analyze_images()
 
 

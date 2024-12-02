@@ -13,6 +13,7 @@ class SpacerAnalyzer:
     def analyze_images(self):
 
         data = []
+        print(self.output_csv + "started")
 
         for root, dirs, files in os.walk(self.input_folder):
             for file in files:
@@ -22,6 +23,7 @@ class SpacerAnalyzer:
                         image_path = os.path.join(root, file)
 
                         img = Image.open(image_path)
+                        print(image_path + " opened")
                         detected_text = pytesseract.image_to_string(img).strip()
 
                         text_detected = 1 if detected_text else 0
@@ -39,6 +41,8 @@ class SpacerAnalyzer:
                             "OCR Output": detected_text,
                             "Accuracy": round(accuracy * 100, 2)
                         })
+                        
+                        print(image_path + " done")
                     except Exception as e:
                         print(f"Error processing file {file}: {e}")
 
@@ -46,3 +50,4 @@ class SpacerAnalyzer:
         df = pd.DataFrame(data)
         df.to_csv(self.output_csv, index=False)
         print(f"Processing complete. Data saved to {self.output_csv}")
+        
