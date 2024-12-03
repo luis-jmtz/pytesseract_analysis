@@ -2,8 +2,8 @@ import cv2
 import os
 
 # Fixed variables
-image_path = "Control_Image.png"
-output_folder = "weight_test_images_v2"
+image_path = "font_50_control.png"
+output_folder = "weight_test_images_v3"
 
 # Create the output folder if it doesn't exist
 os.makedirs(output_folder, exist_ok=True)
@@ -17,7 +17,7 @@ if image is None:
 _, binary_image = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
 # First loop: Dilation
-for kernel_size in range(1, 4):  
+for kernel_size in range(1, 8):  
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
     dilated_image = cv2.dilate(binary_image, kernel, iterations=1)
     
@@ -26,7 +26,7 @@ for kernel_size in range(1, 4):
     cv2.imwrite(output_path, dilated_image)
 
 # Second loop: Erosion
-for kernel_size in range(1, 8):  # Kernel sizes from 1 to 7
+for kernel_size in range(1, 16):  # Kernel sizes from 1 to 7
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
     eroded_image = cv2.erode(binary_image, kernel, iterations=1)
     
