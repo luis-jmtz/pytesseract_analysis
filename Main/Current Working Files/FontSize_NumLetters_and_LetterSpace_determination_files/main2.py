@@ -4,9 +4,12 @@ import csv
 import pytesseract
 from PIL import Image
 import pandas as pd
-
 num_letters = 1
 letter_space = 0
+
+
+# turns out I made a mistake and I didn't need to make the Space and Number file
+
 
 # while num_letters < 20:
     
