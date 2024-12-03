@@ -5,9 +5,9 @@ import csv
 
 # Variables
 base_truth = "AAAA"
-base_thickness = 8.426966292134832
-output_csv = "weight_analysis_v3.csv"
-image_folder = "weight_test_images_v3"
+base_thickness = 11.614173228346457
+output_csv = "weight_analysis_v4.csv"
+image_folder = "weight_test_images_v4"
 
 # Function to calculate average line thickness
 def calculate_average_thickness(image):
